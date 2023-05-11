@@ -1,0 +1,87 @@
+# Páteční schůzka s Jakubem
+
+1. all vs. dvě teorie
+
+    - Brisson: stavové a action aspecty jsou nekompatibilní s kolektivním čtením: *Všichni studenti jsou kruh/*Všichni studenti utvořili kruh -- plus protipříklady
+    - Kuhn: gather vs. be numerous: mělo by jít najít v každé aspektové třídě ty co jdou i obráceně: Všechny ty počítače jsou kompatibilní/??nekompatibilní
+        - Kuhn: accomplishmenty jsou speciální: Collective interpretations of accomplishments with all, however, are neither as good as all with gather-type predicates, nor as bad as all with numerous-type predicates.
+        On the one hand, the eight gather-type predicates patterned almost identically, with uniformly good ratings across the board. On the other hand, the set of eight numerous-type predicates and the set of eight accomplishment predicates both showed a wider range of variation, with a heavy overlap between the two classes of predicates. All together, these results suggest a situation in which accomplishments like build a raft are indeed part of the
+numerous-type class, but that there is a mechanism to rescue numerous-type predicates with all that is particularly easily available for accomplishments.
+
+    - bakalářka: otestovat to -- asi akceptabilita s kontextem fixujícím kolektivitu -- "Všichni ti kluci postavili vor, na tom voru pak (spolu?) sjeli tu divokou řeku"
+        - při formulaci toho experimentu se spojit s Jakubem
+
+2. Vyčistit ten experiment:
+
+- původní experiment:
+
+## baseline
+
+Koho vyhodil profesor Palný včera ze zkoušky? Ani jednoho/žádného studenta.
+
+## fragmentární odpověď
+
+\ex. \a. A: Kdo vrátil včera knížky do fakultní knihovny? 
+\b. B: **Žádný** student. \hfill (**Ellipsis**)  
+ ‘A: Who returned books to the faculty libary yesterday? B: No student.’
+\ex. \a. A: Kdo vrátil včera knížky do fakultní knihovny? 
+\b. B: **Ani** jeden student.
+
+## NR
+
+\ex. \a. Nový asistent nechce, aby **žádný** student vyletěl u
+zkoušky.\hfill (**NR**)  
+ ‘The new assistant professor does not want any student to fail the
+exam.’ 
+\b. Nový asistent nechce, aby **ani** jeden student vyletěl u
+zkoušky. 
+
+
+## pravděpodobnost
+
+\ex. Scenario: prof. Novák yesterday examined an easy course which B.A., M.A. and Ph.D. students attend. Ph.D. students pass the exam always, M.A. in most cases but B.A. only seldomly.
+\a. Včerejší zkoušku u prof. Nováka nesložili **ani/žádní** bakaláři.  
+ yesterday exam at prof. Novák neg.passed NPI/n-Adj B.A.-students
+
+- další zajímavé prostředí:
+
+## ekvativy
+
+Petr je tak vysoký jak nikdo jiný v jeho třídě.
+
+vs.
+
+Petr je tak vysoký jak *ani jeden student v jeho třídě.
+
+- možná lepší:
+
+Vyskakuje si jak nikdo před ním.
+
+vs.
+
+Vyskakuje si jak *ani jeden před ním.
+
+- NPI asi opravdu nelicencuje na rozdíl od komparativu:
+
+Petr je chytřejí než sebemazanější žák z vedlejší školy.
+
+vs. Petr je tak chytrý jak sebemazanější žák z vedlejší školy.
+
+---
+
+
+1. Baseline: Petr neviděl ani jednoho/žádnýho studenta. 
+
+2. ekvativy: Petr si tenkrát zabruslil jak nikdy/ani jednou před tím. 
+
+3. NR 
+
+4. pravděpodobnost
+
+-- 
+
+- přidat sociolingvistický faktory
+- vyčištěný: radši se vykašlat na jednotu žádný/radši nikdo
+- popřemýšlet o dalším prostředí, kde jsou dobrý strong NPI
+
+

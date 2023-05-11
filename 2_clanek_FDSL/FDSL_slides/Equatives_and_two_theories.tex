@@ -1,0 +1,1397 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usetheme[]{metropolis}
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setsansfont{Ubuntu}
+\setmonofont{Ubuntu Mono}
+\metroset{numbering=counter}
+\usepackage[round]{natbib}
+\usepackage{linguex}
+\usepackage{qtree}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{ colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan, }
+\urlstyle{same}
+\newcommand{\cond}[1]{\textsc{#1}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Equatives and two theories of negative concord},
+  pdfauthor={Mojmír Dočekal},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Equatives and two theories of negative concord}
+\subtitle{experimental evidence from Czech}
+\author{Mojmír Dočekal}
+\date{Berlin, 5-10-2022}
+\institute{FDSL 15}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\begin{frame}{Intro}
+\protect\hypertarget{intro}{}
+\begin{itemize}
+\tightlist
+\item
+  talk about expressions depending on the polarity
+\item
+  evidence: Czech (strict negative concord language)
+\item
+  data gathered from many experiments: long and extensive collaborative
+  work with Jakub Dotlačil, Iveta Šafratová, Tereza Slunská, Martin
+  Juřen and many other linguists in Brno and around
+\item
+  add to experimental research on NPIs:
+  \cite{Chemla-Homer-Rothschild-NPI,gajewski2016another,alexandropoulou2020there}
+  a.o.
+\item
+  more specifically: \cite{djarv2018cognitive,schwarz2020italian} and
+  their experimental work on cross-linguistic variation in NPI licensing
+  (following \citealt{chierchia2019factivity})
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  empirically, the talk is about Czech strong NPIs and neg-words
+\item
+  \emph{ani jeden} `even one' vs.~\textit{žádný} `no' (neg-word)
+\item
+  in the majority of contexts: interchangeable -- \Next
+\end{itemize}
+
+\exg. Petr nepotkal \{ani jednoho/žádného\} studenta.\\
+Petr neg-met strong NPI/neg-word student\\
+`Petr didn't meet even one/any student.'
+
+\begin{itemize}
+\tightlist
+\item
+  strong NPIs (theoretical framework: \citealt{gajewski2011licensing})
+  but with the unlikelihood presupposition (English \emph{ANY}:
+  \citealt{krifka1995semantics}, Hindi \emph{ek bhii}:
+  \citealt{lahiri1998focus}, English \emph{even one}:
+  \citealt{crnivc2014non})
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  \emph{ani}: the unlikelihood presupposition of English \emph{even} but
+  limited to strong NPI contexts
+\item
+  strongest (unlikely) prejacent: entailing all the alternatives
+\end{itemize}
+
+\exg. FC Barcelona nedala \{ani jeden/\#ani deset\} gól/ů.\\
+FC Barcelona neg-gave even one/\#even ten goal(s)\\
+`FC Barcelona didn't score even one/\#ten goal(s).'
+
+~
+\end{frame}
+
+\begin{frame}
+Czech neg-words
+
+\begin{itemize}
+\tightlist
+\item
+  similar to Italian neg-words (\emph{niente}, e.g.:
+  \citealt{ladusaw1992expressing}) but as in all Slavic languages
+  (strict negative-concord: \citealt{zeijlstra2004sentential}) in
+  majority of contexts require verbal negation (in the same clause)
+\end{itemize}
+
+\ex. \ag. Petr nedal žádný gól.\\
+Petr neg-scored neg-word goal\\
+`Petr didn't score any goal.' \bg. Nikdo \{nepřišel/\#přišel\}.\\
+neg-word neg-came/came\\
+`Nobody came.' \cg. *Petr neřekl, že nikdo přišel.\\
+Petr neg-said that neg-word came\\
+\hspace*{0.333em}
+
+~
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  the most influential analysis of neg-words: syntactic approach
+  (\citealt{zeijlstra2004sentential} a.o.)
+\item
+  in strict negative concord languages, all neg-words (and the verbal)
+  negation carry {[}uNeg{]} and are checked against {[}iNeg{]} (covert)
+  operator with the semantics of \(\neg\)
+\item
+  part of the talk: experimental support for an alternative, semantic
+  theory of neg-words (\citealt{ovalle2004double,kuhn2022dynamics})
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  equatives: one of the contexts where strong NPIs and neg-words
+  distribution diverge
+\item
+  Czech equatives don't license strong \& weak NPIs (like German and
+  many other non-English NPIs: see \citealt{krifka1992some}) but license
+  neg-words
+\item
+  surprising against English and standard theories of equatives
+  \cite{stechow1984comparing,beck201913} a.o.
+\item
+  one of the environments where the contrast is most robust but still
+  there's a variation: some speakers treat \emph{ani} as neg-word
+\end{itemize}
+
+\exg. Petr je tak vysoký jako \{\#ani jeden/žádný\} jiný student.\\
+Petr is so tall how strong NPI/neg-word other student.\\
+\hspace*{0.333em}
+
+\ex. Paris is as quiet as ever.
+
+~
+\end{frame}
+
+\begin{frame}
+\begin{block}{Negative quantifiers, NPIs, neg-words and variation}
+\protect\hypertarget{negative-quantifiers-npis-neg-words-and-variation}{}
+\begin{itemize}
+\tightlist
+\item
+  connected to the recent work on English NPIs vs.~negative quantifiers
+  and its variation
+\item
+  \citealt{tottie1991negation,burnett2018structural}: NPIs replace
+  negative quantifiers in some (lower, e.g.) syntactic domains
+
+  \begin{itemize}
+  \tightlist
+  \item
+    historical and social factors are real but weaker than grammatical
+  \end{itemize}
+\item
+  similarly: \cite{burnett2015variable}: the variable negative concord
+  in Québec French
+\item
+  experimental work: search for factors (grammatical and social as well)
+\item
+  plus explaining the puzzling equative pattern
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{The empirical and theoretical questions}
+\protect\hypertarget{the-empirical-and-theoretical-questions}{}
+\ex. Question 1: How to explain the unpredicted acceptability of Czech
+neg-words in equatives (and NPIs unavailability)?\\
+\a. Especially considering the monotonic properties of equatives.
+
+\begin{itemize}
+\tightlist
+\item
+  experimental data give us precise enough clues
+\end{itemize}
+
+\ex. Question2: \a. How can we explain microvariation by grammatical
+(semantic) factors? \b. Is part of the variation caused by social
+factors? \z.
+
+~
+\end{block}
+\end{frame}
+
+\begin{frame}{Experiment}
+\protect\hypertarget{experiment}{}
+\begin{itemize}
+\tightlist
+\item
+  the experiment was run online on the L-Rex platform
+\item
+  mostly students of MUNI (Brno) and UK (Prague)
+\item
+  105 participants, 82 passed the fillers and were included in the stats
+\item
+  each questionnaire: 64 items, 48 randomized lists
+\item
+  3 demographic-related questions:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    age
+  \item
+    region
+  \item
+    daily reading time (books, etc.)
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Two parts of the experiment:
+
+\begin{enumerate}
+\item
+  acceptability judgment task (no context)
+\item
+  acceptability judgment task against probability/scalarity manipulated
+  context
+\end{enumerate}
+
+\begin{itemize}
+\item
+  both parts: participants judged the acceptability of sentences on a 1
+  to 7-point Likert scale (1 the worst, 7 the best)
+\item
+  both parts: all conditions were crossed with two conditions:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    neg-words
+  \item
+    strong NPIs
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Experiment: part 1 (example item)}
+\protect\hypertarget{experiment-part-1-example-item}{}
+\ex. \ag. V království nezůstal \{žádný/ani~jeden\} zloděj.\\
+in kingdom neg-ramained neg-word/NPI thief\\
+`No thief remained in the kingdom.' \bg. Král nechce, aby v království
+zůstal \{žádný/ani jeden\} zloděj.\\
+King neg-wants that in kingdom remained neg-word/NPI thief\\
+`The king doesn't want any thief to remain in the kingdom.' \cg. Zloděj
+ze souostroví Qwghlm je tak šikovný jako \{žádný/ani jeden\} zloděj.\\
+thief from archipelago Qwghlm is so clever how neg-word/NPI thief\\
+`The thief from the Qwghlm archipelago is as clever as no other thief.'
+
+\begin{itemize}
+\tightlist
+\item
+  first part: 3x2 design
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Experiment: part 2}
+\protect\hypertarget{experiment-part-2}{}
+\begin{itemize}
+\tightlist
+\item
+  in this part, the two classes of negative dependent expressions were
+  tested against a manipulated context
+\item
+  the context was created to fix a scale (probability, noteworthiness,
+  \ldots)
+\item
+  both neg-words and strong NPIs were tested with tops and bottoms of
+  the contextual scale
+
+  \begin{itemize}
+  \tightlist
+  \item
+    2x2 design
+  \item
+    neg-words/strong NPIs vs.~top-of-the scale/bottom of the scale
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\ex. Kontext: Šikovný trpaslík ze vsi najde v těchhle dolech za den 1, 2
+někdy i 3 diamanty.\\
+Context: A clever dwarf from the village will find 1, 2 or 3 diamonds in
+these mines per day.\\
+\ag. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádný/ani
+1\} diamant.\\
+one clever dwarf from village neg-found yesterday in mines neg-word/NPI
+1 diamond\\
+`One clever dwarf from the village didn't find even one diamond in the
+mines yesterday.' \bg. Jeden šikovný trpaslík ze vsi nenašel včera v
+dolech \{žádné/ani\} 3 diamanty.\\
+one clever dwarf from village neg-found yesterday in mines neg-word/NPI
+3 diamonds\\
+`One clever dwarf from the village didn't find even three diamonds in
+the mines yesterday.'
+
+~
+\end{frame}
+
+\begin{frame}
+\begin{block}{Results}
+\protect\hypertarget{results}{}
+\begin{figure}
+\centering
+\includegraphics{"error_bar.png"}
+\caption{Graph of acceptance (+error bars)}
+\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Hierarchical models}
+\protect\hypertarget{hierarchical-models}{}
+(bottom of the scale probability, top in Appendix)
+
+\begin{itemize}
+\tightlist
+\item
+  mixed hierachical models with random effects for subjects and items
+  (full structure: slope and intercept)
+\item
+  Cumulative Link Mixed Model: R package \texttt{ordinal}
+  (\citet{r-ordinal})
+\item
+  multiple hierarchical regression with interaction (3x2 and 2x2)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Demographic factors}
+\protect\hypertarget{demographic-factors}{}
+\begin{itemize}
+\tightlist
+\item
+  negative concord can vary depending on social factors (Montréal
+  French: \citet{burnett2015variable} but also:
+  \citet{burnett2018structural})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    age, education level
+  \end{itemize}
+\item
+  in the experiment, the subjects were asked for:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    region
+  \item
+    age
+  \item
+    daily reading time (books, newspapers, \ldots)
+  \end{itemize}
+\end{itemize}
+
+Summary of demographic factors:
+
+\begin{itemize}
+\tightlist
+\item
+  no interaction between neg-words or strong NPIs with either of the 3
+  factors
+\item
+  no main effect
+\item
+  the variation effects discussed later are not social (the same
+  results: after z-transformation of age)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{enumerate}
+\item
+  main effects: all conditions were degraded against the baseline
+\item
+  \textbf{interaction effects}:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  the strong positive effect of neg-words by equatives
+\item
+  non-significant effect of neg-words by NegRaising (but see next exps
+  and variation)
+\item
+  significantly strong negative effect of neg-words by probability
+\end{itemize}
+
+(the same results: Bayesian model -- Appendix)
+\end{frame}
+
+\begin{frame}[fragile]
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Cumulative Link Mixed Model fitted with the Laplace approximation}
+\NormalTok{formula}\SpecialCharTok{:} \FunctionTok{as.factor}\NormalTok{(rating1) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition }\SpecialCharTok{*}\NormalTok{ classNExpr }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ condition }\SpecialCharTok{|}  
+\NormalTok{  participant) }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ condition }\SpecialCharTok{|}\NormalTok{ item)}
+\NormalTok{  data}\SpecialCharTok{:}\NormalTok{    items\_with\_probability\_bott}
+
+\NormalTok{Coefficients}\SpecialCharTok{:}
+\NormalTok{                           Estimate Std. Error z value }\FunctionTok{Pr}\NormalTok{(}\SpecialCharTok{\textgreater{}}\ErrorTok{|}\NormalTok{z}\SpecialCharTok{|}\NormalTok{)    }
+\NormalTok{conditionEq               }\SpecialCharTok{{-}}\FloatTok{5.31772}    \FloatTok{0.46257} \SpecialCharTok{{-}}\FloatTok{11.496}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionNR               }\SpecialCharTok{{-}}\FloatTok{5.62684}    \FloatTok{0.44530} \SpecialCharTok{{-}}\FloatTok{12.636}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionProb             }\SpecialCharTok{{-}}\FloatTok{5.62179}    \FloatTok{0.51548} \SpecialCharTok{{-}}\FloatTok{10.906}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{classNExprZ               }\SpecialCharTok{{-}}\FloatTok{0.88195}    \FloatTok{0.26981}  \SpecialCharTok{{-}}\FloatTok{3.269}  \FloatTok{0.00108} \SpecialCharTok{**} 
+\NormalTok{conditionEq}\SpecialCharTok{:}\NormalTok{classNExprZ    }\FloatTok{3.16921}    \FloatTok{0.32897}   \FloatTok{9.634}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionNR}\SpecialCharTok{:}\NormalTok{classNExprZ    }\FloatTok{0.06224}    \FloatTok{0.31883}   \FloatTok{0.195}  \FloatTok{0.84523}    
+\NormalTok{conditionProb}\SpecialCharTok{:}\NormalTok{classNExprZ }\SpecialCharTok{{-}}\FloatTok{0.71610}    \FloatTok{0.33130}  \SpecialCharTok{{-}}\FloatTok{2.161}  \FloatTok{0.03066} \SpecialCharTok{*}  
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{Signif. codes}\SpecialCharTok{:}  \DecValTok{0} \StringTok{\textquotesingle{}***\textquotesingle{}} \FloatTok{0.001} \StringTok{\textquotesingle{}**\textquotesingle{}} \FloatTok{0.01} \StringTok{\textquotesingle{}*\textquotesingle{}} \FloatTok{0.05} \StringTok{\textquotesingle{}.\textquotesingle{}} \FloatTok{0.1} \StringTok{\textquotesingle{} \textquotesingle{}} \DecValTok{1}\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Summary}
+\protect\hypertarget{summary}{}
+\begin{enumerate}
+\tightlist
+\item
+  neg-words are (unlike strong NPIs) accepted in the standard of
+  equatives
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  unexplainable in the syntactic theory of neg-words
+\item
+  NPI unacceptability is surprising but probably results from
+  cross-linguistic differences in equatives
+\end{itemize}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item
+  NegRaising predicates are better licensors for strong NPIs (the effect
+  was not significant in this experiment but see exp. evidence below)
+\item
+  in probability/scale manipulated contexts, strong NPIs are preferred
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  again problematic for the syntactic theory of neg-words
+\end{itemize}
+
+Intriguing correlations between conditions (per speaker).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Correlations}
+\protect\hypertarget{correlations}{}
+\begin{itemize}
+\tightlist
+\item
+  all speakers agreed on their high acceptance of baseline
+\item
+  but some rated \emph{ani} high in equatives, those who accept it in
+  NegRaising: strong NPI
+\item
+  similar observations in previous experiments: baselines universally
+  accepted but divergent acceptability in non-baseline conditions
+\item
+  speakers who accept \emph{ani} in equatives treat it as neg-word
+\item
+  technically:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    z-transformation of (by subject) acceptance of conditions
+  \item
+    checking the correlation of such z-transformed ratings
+  \item
+    Pearson's product-moment correlation: t = \(-5.93\), p-value
+    \(< 0.001\)
+  \end{itemize}
+\item
+  this is a continuation of \citet{docekaldotlacilsubber}: correlation
+  between probability and NegRasing (for \emph{ani} but not for
+  neg-words): see experiments below
+\item
+  but crucially, no correlations against the baseline: slide after the
+  next slide
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics{"correlations_ani.png"}
+\caption{Correlations between NegRaising and Equatives}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics{"equatives_baseline_corr.png"}
+\caption{Correlations between Equatives and Baseline}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Distribution and correlations summary}
+\protect\hypertarget{distribution-and-correlations-summary}{}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2708}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1042}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0833}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0833}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1458}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1875}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bas
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Prob (unlik.)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Eq
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+NR
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fragm.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Without
+\end{minipage} \\
+\midrule()
+\endhead
+strong NPIs & \(\checkmark\) & \(\checkmark\) & * & \(\checkmark\)* & *
+& \(\checkmark\) \\
+neg-words & \(\checkmark\) & * & \(\checkmark\) & * & \(\checkmark\)* &
+\(\checkmark\) \\
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule()
+& Eq \ldots{} NR & Prob. \ldots{} NR & Fragm. \ldots{} NR & Eq \ldots{}
+Bas \\
+\midrule()
+\endhead
+strong NPIs & neg. corr. & neg. corr. & neg. corr. & * \\
+neg-words & * & * & * & * \\
+\bottomrule()
+\end{longtable}
+\end{block}
+\end{frame}
+
+\begin{frame}{Theoretical consequences}
+\protect\hypertarget{theoretical-consequences}{}
+\begin{block}{Assumptions: licensing of (strong) NPIs}
+\protect\hypertarget{assumptions-licensing-of-strong-npis}{}
+\begin{itemize}
+\tightlist
+\item
+  general framework: mixture of \emph{even}-theory of NPIs licensing
+  (\citealt{krifka1995semantics,lahiri1998focus,crnivc2014non} a.o.) and
+  Gajewski's formalization of strong NPIs \cite{gajewski2011licensing}
+\item
+  licensing NPIs (after \citet{gajewski2011licensing}): strong NPIs are
+  licensed in downward-entailing (DE) environments
+\item
+  DE both in Truth-Conditions (TC) but also in the non-at-issue meaning
+\end{itemize}
+
+\ex. An NPI is licensed in the environment \(\gamma\)\\
+\([_\alpha exh [_\beta \ldots [_\gamma\) NPI \(] \ldots ]]\): \a. the
+environment \(\gamma\) is DE in \(\beta\) \hfill weak NPIs \b. the
+environment \(\gamma\) is DE in \(\alpha\) \hfill strong NPIs
+
+~
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  the exhaustifier for strong NPIs as English \emph{even one}: covert
+  \(even\)
+\item
+  the standard analysis for scalar strong NPIs \citet{crnivc2014against}
+  and for scalar reading of focus particles \citet{panizza2020minimal}
+\item
+  overt but also covert \emph{even} has scalar \Next[a] and additive
+  \Next[b] presupposition:
+\item
+  the presuppositions after \citet{panizza2020minimal} (the additive
+  sometimes suspended):
+\end{itemize}
+
+\ex. \a. Even Pope\(_F\) danced. \b. Even one\(_F\) cat will make Pope
+happy.
+
+\ex. `Even \(\phi\)' presupposes: \a. that \(\phi\) is relatively
+unlikely to be true among Alt(\(\phi\)); and \b. that there is
+\(\psi \in\) Alt(\(\phi\)) that is not entailed by \(\phi\) and is true.
+
+\footnotesize(for monotonic scales, likelihood translates into
+entailment (after \citealt{crnic2011getting}))\normalsize
+\end{frame}
+
+\begin{frame}
+\begin{block}{Baseline from the experiment}
+\protect\hypertarget{baseline-from-the-experiment}{}
+\begin{itemize}
+\tightlist
+\item
+  \emph{ani} strong NPIs associate with covert \emph{even} (scope:
+  propositional level)
+\item
+  it reqires DE both in TC and non-at-issue
+\item
+  plus the scalar presupposition of covert \emph{even} exhaustifier
+\item
+  the exhaustified focus alternatives: other cardinality predicates
+  (after \citealt{lahiri1998focus,crnic2011getting} a.o.)
+\item
+  the entailment between numerals is reversed by negation:
+  \(\neg (\llbracket\) one cat
+  \(\rrbracket \ldots) \models \neg(\llbracket\)two
+  cats\(\rrbracket \ldots)\)
+\end{itemize}
+
+\footnotesize
+
+\ex. Ani one thief neg-remained in the kingdom.\\
+\a. ~{[}\(_\alpha\) (\(even\)) {[}\(_\beta\)
+\neg [$_\gamma$ ani one thief remained in the kingdom ]{]} {]} \a. TC
+(in \(\beta\)) DE: \(\checkmark\) \b. non-at-issue (in \(\alpha\)) DE:
+\(\checkmark\) \c. scalar presupposition of (even): \(\rightarrow\)
+\(\neg\)(two thieves remained), \(\neg\)(three thieves remained),
+\ldots: \(\checkmark\) \d. additive presupposition: \(\neg\)(two thieves
+remained) \(\vee\) \(\neg\)(three thieves remained), \ldots:
+\(\checkmark\) \z.
+
+~
+
+\normalsize
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Other conditions from the experiment}
+\protect\hypertarget{other-conditions-from-the-experiment}{}
+\begin{block}{Likelihood}
+\protect\hypertarget{likelihood}{}
+\begin{itemize}
+\tightlist
+\item
+  the explanation is the same as for the baseline: the scope (\(even\))
+  \textgreater{} \(\neg\) \textgreater{} \ldots{} one \ldots{}
+\item
+  the general preference of strong NPIs over neg-words follows from the
+  semantic theory of neg-words -- bellow
+\end{itemize}
+\end{block}
+
+\begin{block}{Neg-Raising}
+\protect\hypertarget{neg-raising}{}
+\begin{itemize}
+\tightlist
+\item
+  in many previous experiments (three at least): Neg-Raising was better
+  accepted with strong NPIs (but the effect was never strong)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    one possibility: the variation -- speakers who treat \emph{ani} as a
+    neg-word blur the line
+  \end{itemize}
+\item
+  standard theories of Neg-Raising: \cite{gajewski2007neg} or
+  \cite{romoli2013scalar}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the scope of negation (via the excluded middle inference) on the
+    embedded predicate
+  \end{itemize}
+\item
+  at the embedded level: covert (\(even\)) \textgreater{} \(\neg\)
+  \textgreater{} {[}\ldots{} one \ldots{]}
+\item
+  neg-words: the locality constraints -- see below
+\end{itemize}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Neg-words}
+\protect\hypertarget{neg-words}{}
+\begin{itemize}
+\tightlist
+\item
+  semantic/pragmatic theory of neg-words and negative concord
+\item
+  \citet{ovalle2004double} and modern reformulation in
+  \citet{kuhn2022dynamics}
+\item
+  TC: indefinite description
+\item
+  non-at-issue: empty reference
+\end{itemize}
+
+\ex. \a.
+\(\llbracket\)neg-word\(\rrbracket\)=\(\lambda P.\exists x[SORT(x) \wedge P(x)]\)
+\hfill TC \b.
+\(\llbracket\)neg-word\(\rrbracket\)=\(\neg \exists x[SORT(x) \wedge P(x)]\)
+\hfill non-at-issue \a. after \citet{kuhn2022dynamics}:
+\(\wedge \mathbf{0_x}\) \ldots postsupposition (highest scope) \z.
+
+~
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Locality, etc.}
+\protect\hypertarget{locality-etc.}{}
+\begin{itemize}
+\tightlist
+\item
+  \citet{kuhn2022dynamics}: many improvements of
+  \citet{ovalle2004double}
+\item
+  discourse referents (presupposed to be empty) are delimited by the
+  previous context
+
+  \begin{itemize}
+  \tightlist
+  \item
+    more specific concerning the presupposition of emptiness
+  \end{itemize}
+\item
+  neg-words are analyzed via split scope around licensor (prototypically
+  negation)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the split scope is achieved via quantifier raising
+  \item
+    the locality constraints on neg-word licensing \(\approx\) QR in the
+    particular language and construction
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Explaining the baseline}
+\protect\hypertarget{explaining-the-baseline}{}
+\ex. neg-word thief neg-remained in the kingdom. \a.
+{[}\(\neg[\exists x[\mathbf{thief}(x) \wedge \mathbf{remained}(x)]\)
+{]}{]} \(\wedge \mathbf{0_x}\)
+
+\begin{itemize}
+\tightlist
+\item
+  TC and the postsupposition are compatible
+\item
+  in positive sentences, the \(\mathbf{0_x}\) postsupposition leads to
+  ungrammaticality:
+\end{itemize}
+
+\ex. neg-word thief remained in the kingdom. \a.
+{[}\(\exists x[\mathbf{thief}(x) \wedge \mathbf{remained}(x)]\) {]}
+\(\wedge \mathbf{0_x}\) \hfill \(\bot\)
+
+\begin{itemize}
+\tightlist
+\item
+  this also nicely explains the acceptability of neg-words with
+  \emph{bez} `without' (no morphological negation)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Other conditions from the experiment}
+\protect\hypertarget{other-conditions-from-the-experiment-1}{}
+\begin{block}{Probability}
+\protect\hypertarget{probability}{}
+\begin{itemize}
+\tightlist
+\item
+  both in top and bottom contexts, strong NPIs were preferred
+\item
+  the contexts were (nearly always) set up with positive inference
+\item
+  the positive inference goes against \(\mathbf{0_x}\) presupposition of
+  neg-words
+
+  \begin{itemize}
+  \tightlist
+  \item
+    it can also explain the surprisingly high acceptability of strong
+    NPIs even in top scalar contexts
+  \item
+    another factor: different scales (numerical in last experiment,
+    ad-hoc in previous) \(\rightarrow\) future experimental work
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Neg-Raising}
+\protect\hypertarget{neg-raising-1}{}
+\begin{itemize}
+\tightlist
+\item
+  previous experimental work: mostly evidence for decreased
+  acceptability of neg-words (against strong NPIs) in NR
+\item
+  Kuhn's QR approach: explains the neg-words decreased acceptability
+\item
+  in the last experiment: the contrast is blurred
+\item
+  one possibility: to remove subjects treating \emph{ani} as a neg-word
+  from the stats
+\item
+  unlike with equatives, the environment seems to be nearly as
+  acceptable for neg-words as for strong NPIs
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Equatives}
+\protect\hypertarget{equatives}{}
+\begin{itemize}
+\tightlist
+\item
+  Slavic equatives are different from English equatives, and their
+  morpho-syntax is very similar to correlatives
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Slavic equatives are built on the correlative syntax
+  \item
+    and following \cite{pauline1995quantificational}: correlatives are
+    bad licensors of NPIs
+  \end{itemize}
+\item
+  another experiment in preparation: weak NPIs are penalized in Czech
+  equatives (but acceptable in comparatives)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Slavic equatives are probably not even DE (as was observed for
+    German: \citealt{krifka1992some,penka2016degree})
+  \end{itemize}
+\item
+  neg-words are acceptable but verbal negation not (as in German:
+  \citealt{penka2016degree})
+\end{itemize}
+
+\exg. Petr je tak chytrý jak nikdo jiný/*Marie ne.\\
+Petr is so smart how neg-word else/Mary not\\
+\hspace*{0.333em}
+
+~
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Equatives II}
+\protect\hypertarget{equatives-ii}{}
+\begin{itemize}
+\tightlist
+\item
+  syntactic and semantic ingredients (pseudoCzech in \Next)
+\item
+  non-standard: \(max \rightarrow max_{inf}\) (otherwise \(max\) would
+  lead to \(\bot\)): \cite{penka2016degree}
+\end{itemize}
+
+\ex. This thief is so clever how neg-word other thief.\\
+\a. {[} so {[}so\(_1\) no other thief \(t_1\) clever {]}{]}\(_2\)
+{[}This thief is \(t_2\) clever{]}\\
+\b. \(\llbracket so\rrbracket\) \ldots{} picks up the degree denoted by
+the standard clause\\
+\b. \(\llbracket\) how\(_1\) neg-word other thief clever is
+\(\rrbracket\)\\
+\a. nobody other than the thief is \(d\)-clever \hfill neg-word
+presupposition\\
+\b. the thief is \(d\)-clever \hfill implicature of \emph{other}\\
+\z.
+
+\ex. \a. \(\llbracket\) as
+\(\rrbracket = \lambda S\lambda C.max(C) \geq max(S)\)\\
+\b.
+\(S' \subseteq S: max(C) \geq max(S) \rightarrow max(C) \geq max(S')\)
+\hfill English DE \textit{as}
+
+~
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Equatives III}
+\protect\hypertarget{equatives-iii}{}
+Motivation of the ingredients:
+
+\begin{itemize}
+\tightlist
+\item
+  \(max_{inf}\): the equative in Czech has exactly the same building
+  blocks (\emph{tak} `so' \ldots{} \emph{jak} `how') as correlative
+  constructions
+\item
+  \emph{other}: the anaphor similar to reciprocal anaphors
+
+  \begin{itemize}
+  \tightlist
+  \item
+    it identifies the dref
+  \item
+    it is also used in the exceptive phrases from which the
+    presupposition comes: \emph{Nobody other than John neg-came}
+    presupposes that John came (as the only exception)
+  \end{itemize}
+\item
+  neg-word presupposition ranges over the dref picked up by the
+  reciprocal
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Summary 1}
+\protect\hypertarget{summary-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Czech neg-words and strong NPIs
+\item
+  existential TC core: \(\lambda P.\exists x[NP(x) \wedge P(x)]\)
+\end{itemize}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+& TC & non-at-issue meaning \\
+\midrule()
+\endhead
+neg-words & existential & \(\mathbf{0_x}\) \\
+strong NPIs & existential & scalar presupposition \\
+& & association with (even) \\
+\bottomrule()
+\end{longtable}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Summary 1}
+\protect\hypertarget{summary-1-1}{}
+\begin{itemize}
+\tightlist
+\item
+  that explains (with some other more or less standard assumptions) the
+  patterns of the experiment(s) plus:
+\end{itemize}
+
+\ex. How to explain the unpredicted acceptability of neg-words in
+equatives (and NPIs unavailability)?
+
+\ex. The non-standard \(max_{inf}\) accounts for the surprising
+neg-words acceptability.\\
+\a. decisive evidence for the semantic theory of neg-words\\
+\b. non-monotonic environment: NPIs are predicted to be out
+
+\begin{itemize}
+\tightlist
+\item
+  neg-words in equatives: no standard theory of equatives with
+  interpreted \(\neg\) ({[}uNeg{]}) in the standard
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\tightlist
+\item
+  the answer to Question 2:
+\end{itemize}
+
+\ex. Question2: \a. How can we explain microvariation by grammatical
+(semantic) factors? \b. Is part of the variation caused by social
+factors? \z.
+
+\ex. The speaker variation is explainable as shifting from the scalar to
+the emptiness of the DR presupposition (in case of \emph{ani jeden}
+`even one'). \a. Social factors don't seem to play a role in this shift.
+
+\begin{itemize}
+\tightlist
+\item
+  the experimental data support the semantic theory of neg-words: higher
+  acceptability of strong NPIs in the probability manipulated contexts:
+  unpredicted, many other environments (fragmentary answers preference
+  for neg-words and also \emph{without} type of P)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge Thanks!
+\end{center}
+
+\normalsize
+\end{frame}
+
+\begin{frame}
+\begin{block}{Open questions}
+\protect\hypertarget{open-questions}{}
+\begin{itemize}
+\tightlist
+\item
+  proper investigation of locality constraints
+
+  \begin{itemize}
+  \tightlist
+  \item
+    NegRaising: the concurrence sometimes vanishes (Maximize
+    Presupposition of \citealt{heim1991articles}?)
+  \end{itemize}
+\item
+  both scopes of covert \emph{even} in probability contexts (exp1) or
+  just one (exp2 \& exp3), or the difference comes from different
+  scales?
+\item
+  cross-linguistic variation in the neg-words locality: at least in some
+  Romance languages, neg-words are licensed in \emph{before}-clauses and
+  under \emph{doubt}-type of predicates
+
+  \begin{itemize}
+  \tightlist
+  \item
+    some suggestions in \cite{kuhn2022dynamics}
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Appendix}
+\protect\hypertarget{appendix}{}
+\begin{block}{Histograms}
+\protect\hypertarget{histograms}{}
+\begin{figure}
+\centering
+\includegraphics{"histogram_faceted_prob_bott.png"}
+\caption{Histogram: probabilities Bottom of the scale}
+\end{figure}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics{"histogram_faceted_prob_top.png"}
+\caption{Histogram: probabilities Top of the scale}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Demographic factors II}
+\protect\hypertarget{demographic-factors-ii}{}
+\begin{enumerate}
+\tightlist
+\item
+  region:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  all regions of the Czech Republic aggregated to Bohemia vs.~Moravia:
+\item
+  67\% of subjects were from Bohemia, 33\% from Moravia
+\item
+  no significant main or interaction effect was found
+\end{itemize}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  age:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  range: 19 to 71 years, mean: 25.6, median: 23
+\item
+  only significant interaction effect: younger people (under 27) rated
+  probability condition slightly better (t-value: \(2.02\), p
+  \(< 0.05\))
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Demographic factors III}
+\protect\hypertarget{demographic-factors-iii}{}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  reading time
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  a proxy for education bias
+\item
+  reading time of books and other media: 0 to 10 hours
+\item
+  mean: 1.43, median: 1 hour
+\item
+  only one significant interaction: subjects with reading time
+  \textgreater{} 1 hour rated NR-condition better (t-value \(2.05\), p
+  \(< 0.05\))
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{More models}
+\protect\hypertarget{more-models}{}
+\begin{itemize}
+\tightlist
+\item
+  Bayesian model for experiment 1: next slide
+\item
+  confidence intervals agree with p-values from the cumulative mixed
+  model
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics{"acc-results-complex.png"}
+\caption{Bayesian model}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\tightlist
+\item
+  mixed linear model for the top of the scale (probability)
+\end{itemize}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Cumulative Link Mixed Model fitted with the Laplace approximation}
+
+\NormalTok{formula}\SpecialCharTok{:} \FunctionTok{as.factor}\NormalTok{(rating1) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ condition }\SpecialCharTok{*}\NormalTok{ classNExpr }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ condition }\SpecialCharTok{|}  
+\NormalTok{    participant) }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+}\NormalTok{ condition }\SpecialCharTok{|}\NormalTok{ item)}
+\NormalTok{data}\SpecialCharTok{:}\NormalTok{    items\_with\_probability\_top}
+
+\NormalTok{Coefficients}\SpecialCharTok{:}
+\NormalTok{                          Estimate Std. Error z value }\FunctionTok{Pr}\NormalTok{(}\SpecialCharTok{\textgreater{}}\ErrorTok{|}\NormalTok{z}\SpecialCharTok{|}\NormalTok{)    }
+\NormalTok{conditionEq               }\SpecialCharTok{{-}}\FloatTok{5.41517}    \FloatTok{0.46741} \SpecialCharTok{{-}}\FloatTok{11.585}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionNR               }\SpecialCharTok{{-}}\FloatTok{5.72051}    \FloatTok{0.44478} \SpecialCharTok{{-}}\FloatTok{12.861}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionProb             }\SpecialCharTok{{-}}\FloatTok{4.59856}    \FloatTok{0.56993}  \SpecialCharTok{{-}}\FloatTok{8.069}  \FloatTok{7.1e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{classNExprZ               }\SpecialCharTok{{-}}\FloatTok{0.88066}    \FloatTok{0.27140}  \SpecialCharTok{{-}}\FloatTok{3.245} \FloatTok{0.001175} \SpecialCharTok{**} 
+\NormalTok{conditionEq}\SpecialCharTok{:}\NormalTok{classNExprZ    }\FloatTok{3.21934}    \FloatTok{0.33077}   \FloatTok{9.733}  \SpecialCharTok{\textless{}} \FloatTok{2e{-}16} \SpecialCharTok{**}\ErrorTok{*}
+\NormalTok{conditionNR}\SpecialCharTok{:}\NormalTok{classNExprZ    }\FloatTok{0.05194}    \FloatTok{0.32027}   \FloatTok{0.162} \FloatTok{0.871180}    
+\NormalTok{conditionProb}\SpecialCharTok{:}\NormalTok{classNExprZ }\SpecialCharTok{{-}}\FloatTok{1.16830}    \FloatTok{0.32806}  \SpecialCharTok{{-}}\FloatTok{3.561} \FloatTok{0.000369} \SpecialCharTok{**}\ErrorTok{*}
+\SpecialCharTok{{-}{-}{-}}
+\NormalTok{Signif. codes}\SpecialCharTok{:}  \DecValTok{0}\NormalTok{ ‘}\SpecialCharTok{**}\ErrorTok{*}\NormalTok{’ }\FloatTok{0.001}\NormalTok{ ‘}\SpecialCharTok{**}\NormalTok{’ }\FloatTok{0.01}\NormalTok{ ‘}\SpecialCharTok{*}\NormalTok{’ }\FloatTok{0.05}\NormalTok{ ‘.’ }\FloatTok{0.1}\NormalTok{ ‘ ’ }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+--\textgreater{}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\renewcommand\refname{References}
+\begin{frame}[allowframebreaks]{References}
+  \bibliographytrue
+  \bibliography{bibliography.bib}
+\end{frame}
+
+\end{document}

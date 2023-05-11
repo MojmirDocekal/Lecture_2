@@ -1,0 +1,113 @@
+---
+title: Equatives and two theories of negative concord
+subtitle: experimental evidence from Czech
+author: Mojmír Dočekal
+date: Berlin, 5-10-2022
+institute: FDSL 15
+output:
+  beamer_presentation:
+    toc: yes
+    keep_tex: yes
+    theme: metropolis
+    latex_engine: lualatex
+    citation_package: natbib
+header-includes: 
+  - \usecolortheme{owl}
+  - \setsansfont{Ubuntu}
+  - \setmonofont{Ubuntu Mono}
+  - \metroset{numbering=counter}
+  - \usepackage[round]{natbib}
+  - \usepackage{linguex}
+  - \usepackage{qtree}
+  - \usepackage{stmaryrd}
+  - \usepackage{hyperref}
+  - \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+  - \urlstyle{same}
+  - \newcommand{\cond}[1]{\textsc{#1}}
+bibliography: bibliography.bib
+---
+
+```{r,setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+# Intro
+
+- continuation of the previous work: the distinction between strong NPIs and neg-words
+- equatives: one of the contexts where strong NPIs and neg-words distribution diverge
+- Czech equatives don't license NPIs (like German and many other non-English NPIs: see \citealt{krifka1992some}) but license neg-words
+- surprising against English and standard theories of equatives \cite{stechow1984comparing,beck201913} a.o.
+
+\ex. Paris is as quiet as ever.
+
+
+\exg. Petr je tak vysoký jako \{#ani jeden/žádný\} jiný student.  
+  Petr is so tall how strong NPI/neg-word other student.  
+  \ 
+
+\ 
+
+---
+
+### Experiment: part 1 (example item)
+
+\ex. \ag. V království nezůstal \{žádný/ani\ jeden\} zloděj.  
+ in kingdom neg-ramained neg-word/NPI thief   
+ \`No thief remained in the kingdom.'
+\bg. Král nechce, aby v království zůstal \{žádný/ani jeden\} zloděj.  
+ King neg-wants that in kingdom remained neg-word/NPI thief  
+ \`The king doesn't want any thief to remain in the kingdom.'
+\cg. Zloděj ze souostroví Qwghlm je tak šikovný jako \{žádný/ani jeden\} zloděj.  
+ thief from archipelago Qwghlm is so clever how neg-word/NPI thief  
+ \`The thief from the Qwghlm archipelago is as clever as no other thief.'
+
+- first part: 3x2 design
+
+---
+
+\ex. Kontext: Šikovný trpaslík ze vsi najde v těchhle dolech za den 1, 2 někdy i 3 diamanty.  
+ Context: A clever dwarf from the village will find 1, 2 or 3 diamonds in these mines per day.   
+\ag. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádný/ani 1\} diamant.  
+ one clever dwarf from village neg-found yesterday in mines neg-word/NPI 1 diamond    
+ \`One clever dwarf from the village didn't find even one diamond in the mines yesterday.'
+\bg. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádné/ani} 3 diamanty.  
+ one clever dwarf from village neg-found yesterday in mines neg-word/NPI 3 diamonds   
+ \`One clever dwarf from the village didn't find even three diamonds in the mines yesterday.'
+
+
+\ 
+
+---
+
+
+![Bayesian model]("acc-results-complex.png")
+
+---
+
+Theoretical consequences:
+
+1. for neg-words theories: empirical evidence for the semantic type of negative-concord approaches \cite{ovalle2004double,kuhn2022dynamics} against the standard syntactic approach \cite{zeijlstra2004sentential}
+
+2. for the degree theories of equatives: empirical arguments for the non-standard approach to Slavic (and German) equatives -- \cite{penka2016degree} against the standard theories \cite{stechow1984comparing,beck201913}
+
+3. no evidence of demographic related variation but the variation is still real (partially following: \citealt{burnett2015variable,burnett2018structural})
+
+---
+
+
+
+\begin{center}
+\Huge Thanks!
+\end{center}
+
+\normalsize
+
+---
+
+# References
+

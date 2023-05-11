@@ -1,0 +1,503 @@
+# 0. Practice
+
+- navést je na pravděpodobnost: nějaké jasné porušení pravděpodobnosti u *i* nebo *dokonce*
+- u škály asi minimálně změnit komentář: akceptabilní věta/věta akceptabilní v kontextu
+- to zohlednit u practice
+
+# I. část: acceptability judgment task
+
+18 itemů ve dvou podmínkách
+
+- pohlídat stejné objekty a maximálně srovnat predikáty
+
+1. a. baseline: 
+    - Profesor Novák nevyhodil ani jednoho akademika.
+    - Profesor Novák nevyhodil žádného akademika.
+
+   b. NR:
+    - Profesor Novák nechce, abychom vyhodili ani jednoho akademika.
+    - Profesor Novák nechce, abychom vyhodili žádného akademika.
+
+   c. ekvativy:
+   - Profesor Novák je tak chytrý jak ani jeden akademik na celé fakultě.
+   - Profesor Novák je tak chytrý jak žádný akademik na celé fakultě.
+
+2. a. baseline
+    - Marie nejedla týden ani rýži.
+    - Marie nejedla týden žádnou rýži.
+
+    b. NR:
+    - Petr nechce, aby Marie jedla týden ani rýži.
+    - Petr nechce, aby Marie jedla týden žádnou rýži.
+
+    c. ekvativy:
+    - Jasmínová rýže chutná tak jak ani jedna rýže.
+    - Jasmínová rýže chutná tak jak žádná jiná rýže.
+
+3. a. baseline
+    - Král nepotkal ani jednoho ministra.
+    - Král nepotkal žádného ministra.
+
+   b. NR
+    - Novinář nechce, aby král potkal ani jednoho ministra.
+    - Novinář nechce, aby král potkal žádného ministra.
+
+   c. ekvativy
+   - Ministr přes draky je tak chytrý jak ani jeden ministr.
+   - Ministr přes draky je tak chytrý jak žádný jiný ministr.
+
+4. a. baseline
+    - V království nezůstal ani jeden zloděj.
+    - V království nezůstal žádný zloděj.
+
+   b. NR
+    - Král nechce, aby v království zůstal ani jeden zloděj.
+    - Král nechce, aby v království zůstal žádný zloděj.
+
+   c. ekvativy
+   - Zloděj ze souostroví Qwghlm je tak šikovný jako ani jeden zloděj.
+   - Zloděj ze souostroví Qwghlm je tak šikovný jako žádný jiný zloděj.
+
+5. a. baseline
+    - Rackovi neutekl ani jeden hraboš.
+    - Rackovi neutekl žádný hraboš.
+
+   b. NR
+    - Racek nechce, aby mu utekl ani jeden hraboš.
+    - Racek nechce, aby mu utekl žádný hraboš.
+
+   c. ekvativy
+   - Tenhle racek je tak šikovný jak ani jeden racek na pobřeží.
+   - Tenhle racek je tak šikovný jak žádný jiný racek na pobřeží.
+
+6. a. baseline
+    - Farmář Karel neprodal ani jednoho králíka.
+    - Farmář Karel neprodal žádného králíka.
+
+   b. NR
+    - Starosta nechce, aby farmář Karel prodal ani jednoho králíka.
+    - Starosta nechce, aby farmář Karel prodal žádného králíka.
+
+   c. ekvativy
+   - Farmář Karel prodá tolik králíků jako ani jeden farmář v okolí.
+   - Farmář Karel prodá tolik králíků jako žádný farmář v okolí.
+
+7. a. baseline 
+    - Policista Karel nepředjel ani jednoho řidiče. 
+    - Policista Karel nepředjel žádného řidiče.
+
+   b. NR
+    - Policista Karel nechce, aby ani jeden řidič jezdil proti předpisům.
+    - Policista Karel nechce, aby žádný řidič jezdil proti předpisům.
+
+   c. ekvativy 
+   - Tenhle řidič jel tak rychle jak ani jeden před ním.
+   - Tenhle řidič jel tak rychle jak žádný jiný před ním.
+
+8. a. baseline
+    - Čtenáři Karlovi neutekla minulý týden ani jedna nová kniha.
+    - Čtenáři Karlovi neutekla minulý týden žádná nová kniha.
+
+   b. NR
+    - Čtenář Karel nechce, aby mu utekla ani jedna nová kniha.
+    - Čtenář Karel nechce, aby mu utekla žádná nová kniha.
+
+   c. ekvativy
+   - Tahle knížka je tak nová jak ani jedna jiná kniha.
+   - Tahle knížka je tak nová jak žádná jiná.
+
+
+9. a. baseline
+    - Umývač oken Karel neumyl ani jedno okno.
+    - Umývač oken Karel neumyl žádné okno.
+
+   b. NR
+    - Umývač oken Karel nechce, aby ani jedno okno zůstalo špinavé.
+    - Umývač oken Karel nechce, aby žádné okno zůstalo špinavé. 
+
+   c. ekvativy
+   - Tohle okno je tak špinavé jak ani jedno jiné.
+   - Tohle okno je tak špinavé jak žádné jiné.
+
+10.a. baseline
+    - Tajného jednání se nezúčastnil ani jeden voják.
+    - Tajného jednání se nezúčastnil žádný voják.
+
+   b. NR
+    - Generál nechce, aby se tajného jednání zúčastnil ani jeden voják.
+    - Generál nechce, aby se tajného jednání zúčastnil žádný voják. 
+
+   c. 
+   - Tenhle voják je tak nedůvěryhodný jako ani jeden jiný voják.
+   - Tenhle voják je tak nedůvěryhodný jako žádný jiný voják.
+
+
+11.a. baseline
+    - Na ostrov nešel ani jeden námořník.
+    - Na ostrov nešel žádný námořník.
+
+   b. NR
+    - Kapitán nechce, aby na ostrov šel ani jeden námořník.
+    - Kapitán nechce, aby na ostrov šel žádný námořník.
+
+   c. ekvativy(tenhle námořník)
+   - Tenhle námořník je tak statečný jak ani jeden jiný námořník.
+   - Tenhle námořník je tak statečný jak žádný jiný námořník.
+
+12.a. baseline
+    - Ředitel továrny nepropustil ani jednoho dělníka.
+    - Ředitel továrny nepropustil žádného dělníka.
+
+   b. NR
+    - Ředitel továrny nechce, aby byl propuštěn ani jeden dělník.
+    - Ředitel továrny nechce, aby byl propuštěn žádný dělník.
+
+   c. ekvativy
+   - Tenhle dělník je tak pracovitý jako ani jeden jiný dělník.
+   - Tenhle dělník je tak pracovitý jako žádný jiný.
+   
+13.a. baseline
+    - Petr nechce při lyžování spadnout ani jednou.
+    - Petr nechce při lyžování nikdy spadnout.
+
+   b. NR
+    - Petr nechce, aby při lyžování spadl ani jednou.
+    - Petr nechce, aby při lyžování nikdy spadl.
+
+   c. ekvativy
+   - Petr si dnes zalyžoval tak jak ani jednou před tím.
+   - Petr si dnes zalyžoval tak jak nikdy před tím.
+
+14. a. baseline
+    - Pacient nebral ani jeden lék.
+    - Pacient nebral žádný lék.
+
+   b. NR
+    - Lékař nechce, aby pacient bral ani jeden lék.
+    - Lékař nechce, aby pacient bral žádný lék. 
+
+   c. ekvativy
+   - Tenhle lék pomáhá tak jak žádný jiný lék.
+   - Tenhle lék pomáhá tak jak ani jeden lék.
+
+15. a. baseline
+    - Tento měsíc nepršelo ani jeden den.
+    - Tento měsíc nerpšelo žádný den.
+
+   b. NR
+    - Turisté nechtějí, aby pršelo ani jeden den.
+    - Turisté nechtějí, aby pršelo žádný den.
+
+   c. ekvativy(deštivý)
+   - Včerejší den byl tak deštivý jak ani jeden den v tomhle měsíci.
+   - Včerejší den byl tak deštivý jak žádný jiný den v tomhle měsíci.
+
+16. a. baseline
+    - Ten spisovatel nevydal ani jednu povídku.
+    - Ten spisovatel nevydal žádnou povídku.
+
+   b. NR
+    - Nakladatel nechce, aby ten spisovatel vydal ani jednu povídku.
+    - Nakladatel nechce, aby ten spisovatel vydal žádnou povídku.
+
+   c. ekvativy
+   - Tahle povídka je dobrá jako ani jedna jiná povídka.
+   - Tahle povídka je dobrá jako žádná jiná.
+
+17. a. baseline
+    - V tomhle lese neroste ani jedna borovice.
+    - V tomhle lese neroste žádná borovice.
+
+   b. NR
+    - Hajný nechce, aby v tomhle lese rostla ani jedna borovice.
+    - Hajný nechce, aby v tomhle lese rostla žádná borovice.
+
+   c. ekvativy
+   - V tomhle lese jsou borovice vysoké jak na ani jednom jiném místě.
+   - V tomhle lese jsou borovice vysoké jak na žádném jiném místě.
+
+18. a. baseline
+    - Fotbalisté neprohráli ani jeden zápas.
+    - Fotbalisté neprohráli žádný zápas.
+
+   b. NR
+    - Trenér nechce, aby fotbalisté prohráli ani jeden zápas.
+    - Trenér nechce, aby fotbalisté prohráli žádný zápas.. 
+
+   c. ekvativy 
+   - Zápasy v letošní sezóně byly těžké jako ani jeden před tím.
+   - Zápasy v letošní sezóně byly těžké jako žádné před tím.
+
+19. a. baseline
+	- Basketbalisté nebyli nikdy takhle šťastní.
+	- Basketbalisté nebyli ani jednou takhle šťastní.
+	
+    b. NR
+    	- Soupeři nechtějí, aby basketbalisté byli ani jednou takhle šťastní.
+    	- Soupeři nechtějí, aby basketbalisté byli nikdy takhle šťastní.
+    
+    c. ekvativy
+    	- Basketbalisté byli tak šťastní jako ani jednou předtím.
+    	- Basketbalisté byli tak šťastní jako nikdy předtím.
+
+N. a. baseline
+    - 
+    - 
+
+   b. NR
+    - 
+    - 
+
+   c. ekvativy
+   - 
+   - 
+
+
+# II. část: acceptability (kontext) task:
+
+12 itemů ve dvou podmínkách: 2x spodek škály, 2x vršek škály
+
+1. Kontext: Profesor Novák učí předmět, do kterého chodí bakaláři, magistři i doktorandi. Doktorandi zvládnou zkoušku téměř všichni, magistři tak z poloviny, bakaláři jen vyjímečně.
+
+	a) Včerejší zkoušku u profesora Nováka nesložili ani doktorandi.
+	b) Včerejší zkoušku u profesora Nováka nesložili žádní doktorandi.
+	c) Včerejší zkoušku u profesora Nováka nesložili ani bakaláři.
+	d) Včerejší zkoušku u profesora Nováka nesložili žádní bakaláři.
+
+
+2. Kontext: Za opravení pračky si za den opravář vezme 3000, někdy 5000 a ve výjimečných případech 9000 Kč.
+
+	a) Včera si opravář za spravení pračky nevzal ani 3000 Kč.
+	b) Včera si opravář za spravení pračky nevzal žádných 3000 Kč.
+	c) Včera si opravář za spravení pračky nevzal ani 9000 Kč.
+	d) Včera si opravář za spravení pračky nevzal žádných 9000 Kč.
+
+
+3. Cesta z centra na periferii taxíkem stojí 200, někdy 250 a maximálně 300 Kč.
+
+	a) Včera si taxikář za cestu z centra na periférii nevzal ani 200 Kč.
+	b) Včera si taxikář za cestu z centra na periférii nevzal žádných 200 Kč.
+	c) Včera si taxikář za cestu z centra na periférii nevzal ani 300 Kč.
+	d) Včera si taxikář za cestu z centra na periférii nevzal žádných 300 Kč.
+
+	
+4. Cesta vlakem z města do hor stojí podle toho, jestli jedete osobním vlakem, rychlíkem, případně 1. třídou zhruba 500, 700 nebo 900 Kč.
+
+	a) Včerejší cesta z města do hor nás nestála ani 500 Kč.
+	b) Včerejší cesta z města do hor nás nestála žádných 500 Kč.
+	c) Včerejší cesta z města do hor nás nestála ani 900 Kč.
+	d) Včerejší cesta z města do hor nás nestála žádných 900 Kč.
+
+5. Za knížku o historii města zaplatíš v tomhle antikvariátu 500, 1500 nebo až 3000 Kč.
+
+	a) Včera jsem v tomhle antikvariátu koupil knížku o historii města a nestálo mě to ani 500 Kč.
+	b) Včera jsem v tomhle antikvariátu koupil knížku o historii města a nestálo mě to žádných 500 Kč.
+	c) Včera jsem v tomhle antikvariátu koupil knížku o historii města a nestálo mě to ani 3000 Kč.
+	d) Včera jsem v tomhle antikvariátu koupil knížku o historii města a nestálo mě to žádných 3000 Kč.	 
+
+6. Na tuhle atrakci můžou šestileté děti v doprovodu rodičů, osmileté (pokud mají víc jak 130 cm) a desetileté bez jakýchkoliv podmínek.
+
+	a) Na tu atrakci nemůžeš, protože nemáš ani šest let.
+	b) Na tu atrakci nemůžeš, protože nemáš žádných šest let.
+	c) Na tu atrakci nemůžeš, protože nemáš ani deset let.
+	d) Na tu atrakci nemůžeš, protože nemáš žádných deset let.
+
+7. Hudební festivaly na tomhle bývalém letišti trvají 3 dny, někdy 5 dnů, ale maximum je týden.
+
+	a) Poslední festival na bývalém letišti netrval ani 3 dny.
+	b) Poslední festival na bývalém letišti netrval žádné 3 dny.
+	c) Poslední festival na bývalém letišti netrval ani týden.
+	d) Poslední festival na bývalém letišti netrval žádný týden.
+
+8. Tenhle lék pomáhá od bolesti a v závislosti na mnoha faktorech, úleva trvá 4 hodiny, někdy 8 hodin a maximální doložená účinnost je 12 hodin.
+
+	a) Ten lék mi včera neulevil od bolesti ani na 3 hodiny.
+	b) Ten lék mi včera neulevil od bolesti na žádné 3 hodiny.
+	c) Ten lék mi včera neulevil od bolesti ani na půl dne.
+	d) Ten lék mi včera neulevil od bolesti na žádného půl dne. 
+
+9. Na přezutí pneumatik v pneuservisu si počkáte hodinu, někdy dvě hodiny a při velkém návalu i půl dne.
+
+	a) Včerejší přezutí pneumatik v pneuservisu netrvalo ani hodinu.
+	b) Včerejší přezutí pneumatik v pneuservisu netrvalo žádnou hodinu.
+	c) Včerejší přezutí pneumatik v pneuservisu netrvalo ani půl dne.
+	d) Včerejší přezutí pneumatik v pneuservisu netrvalo žádného půl dne.
+
+10. Cesta z jednooho konce města na druhý trvá veřejnou dopravou 50 minut, někdy hodinu a půl, ale můžete to jet i 3 hodiny.
+
+	a) Dneska ráno mi cesta z jednoho konce města na druhý dopravou nezabrala ani 50 minut.
+	b) Dneska ráno mi cesta z jednoho konce města na druhý dopravou nezabrala žádných 50 minut.
+	c) Dneska ráno mi cesta z jednoho konce města na druhý dopravou nezabrala ani 3 hodiny.
+	d) Dneska ráno mi cesta z jednoho konce města na druhý dopravou nezabrala žádné 3 hodiny. 
+
+
+11. V tomhle lese najdeš za hodinu tak 20, někdy 30 a za dobrého počasí i 50 hub.
+
+	a) Včera jsem v tomhle lese nenašel ani 20 hub.
+	b) Včera jsem v tomhle lese nenašel žádných 20 hub.
+	c) Včera jsem v tomhle lese nenašel ani 50 hub.
+	d) Včera jsem v tomhle lese nenašel žádných 50 hub.
+
+12. Šikovný trpaslík najde v těchhle dolech za den 1, 2 někdy i 3 diamanty.
+
+	a) Nejšikovnější trpaslík z vsi nenašel včera v dolech ani 1 diamant.
+	b) Nejšikovnější trpaslík z vsi nenašel včera v dolech žádný diamant.
+	c) Nejšikovnější trpaslík z vsi nenašel včera v dolech ani 3 diamanty.
+	d) Nejšikovnější trpaslík z vsi nenašel včera v dolech žádné 3 diamanty.
+
+
+
+N. Kontext:
+
+    -
+    -
+
+# Fillery
+
+- 12 na TVJT, 18 na acceptabilitu
+
+## Fillery na TVJT
+
+- fokusové částice: jen, také, exhaustivita univerzálních kvantifikátorů, ...
+
+1.-good Kontext: V páté třídě jí zeleninu jen Petr, ostatní děti ji vždycky nechají, i když je za to paní učitelka napomíná.
+
+Věta: Dneska byla na oběd brokolice, ale snědl ji jedině Petr.
+
+2.-bad Kontext: Všichni farmáři z Horní, Dolní i Prostřední Lhoty na dnešním trhu prodali aspoň jeden kus dobytka.
+
+Věta: Na dnešním trhu neprodali farmáři z Prostřední Lhoty žádný dobytek.
+
+3.-good Petr a Karel jsou dobří kamarádi a chodí spolu i na společné výlety. Petr naplánoval na víkend výlet do hor.
+
+Věta: Výletu se zúčastnil i Karel.
+
+4.-bad V tomhle lese vždycky najdeme houby i maliny. Jen včera jsme tam našli pouze maliny.
+
+Věta: Včera jsme v tomhle lese našli i houby.
+
+5.-good Na včerejším vystoupení zazpíval každý žák včetně Karla jednu píseň.
+
+Věta: Karlův spolužák Petr zazpíval na včerejším vystoupení jednu píseň.
+
+6.-bad Klára a Bára chodí rády do cukrárny, ale vždycky si dají jen jeden zákusek.
+
+Věta: Klára a Bára si včera v cukrárně daly každá tři zákusky.
+
+7.-good Kocouři Mikeš a Kokeš jsou dobří lovci myší a každý den uloví aspoň 2 myši.
+
+Věta: Mikeš a Kokeš ulovili včera každý tři myši.
+
+8.-bad Psi Alík a Baryk chytili na včerejším honu po dvou zajících. Vyfotil je u toho revírník.
+
+Věta: Hajný viděl Alíka a Baryka, jak revírník fotí dva zajíce každý.
+
+9.-good Na rodinném setkání Novákových se grilovalo prase.
+
+Věta: Večer bylo celé prase sněděné.
+
+10.-bad Při tradičním večírku indiánů se vždycky opéká nad ohněm bizon.
+
+Věta: Do rána byl všechen bizon snědený.
+
+11.-good Povinností každého detektiva je zadržet každý den alespoň jednoho zločince.
+
+Věta: Detektiv Karel včera zadržel dva zločince.
+
+12.-bad Včera chytil každý náš revizor každou hodinu alespoň jednoho černého pasažéra.
+
+Věta: Včera odpoledne nechytili naši noví revizoři žádného černého pasažéra. 
+
+
+
+## Fillery na acceptabilitu
+
+- negativní shoda ve větě, přes hranici;
+- anafory v komparativech, ...
+
+1.-good Petr neviděl odjíždět ani jedno auto.
+
+2.-bad Petr je mnohem vyšší než svůj dědeček. 
+
+3.-good Petr je tak vysoký jako jeho soused.
+
+4.-bad Petr je vyšší než je svůj soused těžký.
+
+5.-good Námořníci slyšeli zpívat svého kapitána.
+
+6.-bad Kapitán slyšel, že svoji námořníci odešli na ostrov.
+
+7.-good Žádný dělník nevyrobil ani jednu součástku.
+
+8.-bad Ne každý dělník dnes vyrobil ani jednu součástku.
+
+9.-good Tenhle spisovatel napsal knížku o 200 stran delší než chtěl.
+
+10.-bad Knížka v tomhle antikvariátu je 1500 Kč drahá.
+
+11.-good Náš nový hajný nechtěl vysadit žádnou borovici.
+
+12.-bad Náš nový hajný nevěděl, že revírník vysadil žádnou borovici.
+
+13.-good Tenhle policista je schopnější než jeho kolegové.
+
+14.-bad Tenhle sokol je rychlejší než svoje rodina.
+
+15.-good První detektiv tvrdil, že z místa vraždy nikdo neodešel.
+
+16.-bad Hlavní podezřelý neřekl, že nikdy navštívil místo vraždy.
+
+17.-good Někteří rackové dnes nechytili nic.
+
+18.-bad Ne všichni rackové dnes chytili žádného hraboše.
+
+# Nakonec nepoužitý materiál
+
+
+Zaprvé o 	žádných pětadvaceti 	milionech eur nic nevím
+
+Žádných čtrnáct 	dní !
+
+Žádných devět 	, osm ti bude .
+
+Žádných patnáct 	odstavců . Jediná věta .
+
+3. Kontext: Jednání o dracích se v království vždycky účastní pět ministrů, někdy přizvou i šestého a zcela výjimečně se jich při té příležitosti sejde sedm.
+
+    - Jednání o dracích se nezúčastnilo ani pět ministrů.
+    - Jednání o dracích se nezúčastnilo žádných pět ministrů.
+
+4. Kontext: Na chytání zlodějů se královi každý rok vždycky přihlásí tak deset, jedenáct dobrodruhů, jeden rok se jich prý přihlásilo i dvanáct.
+
+    - Na chytání zlodějů se letos nepřihlásilo ani dvanáct dobrodruhů.
+    - Na chytání zlodějů se letos nepřihlásilo žádných dvanáct dobrodruhů.
+
+5. Kontext: Racek na Qwghlmu uloví denně tak pět skrrghů, když je šikovný i šest skrrghů, vyjímečně šikovný racek sedm skrrghů.
+
+    - Tenhle nemotorný racek neulovil ani sedm skrrghů.
+    - Tenhle nemotorný racek neulovil žádných sedm skrrghů.
+
+6. Kontext: Farmář Karel prodá na sobotním trhu vždycky tak tři až čtyři králíky, pokud je výjimečně dobrá sobota, tak pět králíků.
+
+    - Farmář Karel na sobotním trhu neprodal ani sedm králíků.
+    - Farmář Karel na sobotním trhu neprodal žádných sedm králíků.
+
+7. Kontext: Policista Karel pokutuje za pracovní den průměrně dvanáct řidičů za rychlou jízdu, někdy i dvanáct a zcela výjimečně čtrnáct.
+
+    - Policista Karel ve středu nepokutoval ani čtrnáct řidičů.
+    - Policista Karel ve středu nepokutoval žádných čtrnáct řidičů.
+
+8. Kontext: Vášnivý čtenář Karel přečte za týden i čtyři knížky, někdy pět a jednou stihl i šest knih za týden.
+
+    - Čtenář Karel nepřečetl za minulý týden ani šest knih.
+    - Čtenář Karel nepřečetl za minulý týden žádných šest knih.
+
+9. Kontext: Umývač oken Karel umyje za hodinu dvě, někdy i tři a když jsou malá, tak výjimečně i čtyři okna.
+
+    - Umývač oken Karel neumyl za poslední hodinu ani čtyři okna.
+    - Umývač oken Karel neumyl za poslední hodinu žádná čtyři okna.
+
+
+
+
+vim:spell:spelllang=cs

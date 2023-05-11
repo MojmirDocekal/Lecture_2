@@ -1,0 +1,88 @@
+---
+title: "demographics"
+author: "MD"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# First import, tidy, ...
+
+```{r}
+library(tidyverse)
+
+filename1 <- "exp_april_2022_PARTICIPANTS_2022-05-02-0622.csv"
+filename2 <- "exp_april_2022_PARTICIPANTS_2022-05-09-0540.csv"
+
+demographics1 <- read_csv2(filename1)
+demographics2 <- read_csv2(filename2)
+
+demographics1.tmp <- demographics1 %>% drop_na(`time taken sec`)
+demographics2.tmp <- demographics2 %>% drop_na(`time taken sec`)
+
+demographics1 <- demographics1.tmp
+demographics2 <- demographics2.tmp
+
+uco1 <- select(demographics1, demographic4)
+uco2 <- select(demographics2, demographic4)
+
+uco <- c(uco1$demographic4, uco2$demographic4)
+uco <- as.numeric(uco)
+
+print(uco)
+
+#filename3 <- "seznam_export_r_statistika.csv"
+filename3 <- "seznam_export_syntax.csv"
+
+studenti_seminar1 <- read_csv2(filename3)
+
+(vyplnili <- filter(studenti_seminar1, (Učo %in% uco)))
+
+#write_csv2(vyplnili, "vyplnili_r_statistika.csv")
+write_csv2(vyplnili, "vyplnili_syntax.csv")
+
+```
+
+- joining the two tibbles
+
+```{r}
+demographics1$demographic5 <- ""
+demographics1$demographic6 <- ""
+
+summary(demographics1)
+max(demographics1$participant)
+
+summary(demographics2)
+
+demographics2.tmp <- demographics2 %>% 
+  mutate(demographics2, participant = participant + max(demographics1$participant))
+
+demographics2 <- demographics2.tmp
+
+summary(demographics1)
+summary(demographics2)
+
+demographics2$demographic1 <- as.numeric(demographics2$demographic1)
+
+demographics3 <- bind_rows(demographics1, demographics2)
+
+demographics3.tmp <- demographics3
+
+demographics3.tmp <- demographics3.tmp %>% 
+  mutate(participant = row_number())
+
+demographics3 <- demographics3.tmp
+
+write_csv2(demographics3, "merged_demographics.csv")
+```
+
+
+```{r eval=FALSE, include=FALSE}
+
+cteni <- select(demographics, demographic3)
+
+g1 <- ggplot(demographics, aes(x=demographic3)) + 
+  geom_density()
+g1
+
+```
+

@@ -1,0 +1,17 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'equatives_and_two_theories_art.blg'
+[115] biber:340> INFO - === Po led 23, 2023, 15:42:10
+[138] Biber.pm:415> INFO - Reading 'equatives_and_two_theories_art.bcf'
+[256] Biber.pm:952> INFO - Found 30 citekeys in bib section 0
+[275] Biber.pm:4340> INFO - Processing section 0
+[289] Biber.pm:4531> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[293] bibtex.pm:1689> INFO - LaTeX decoding ...
+[409] bibtex.pm:1494> INFO - Found BibTeX data source 'bibliography.bib'
+[415] Utils.pm:384> WARN - Duplicate entry key: 'giannakidou2017landscape' in file 'bibliography.bib', skipping ...
+[729] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[729] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[729] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[729] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[780] bbl.pm:654> INFO - Writing 'equatives_and_two_theories_art.bbl' with encoding 'UTF-8'
+[802] bbl.pm:757> INFO - Output to equatives_and_two_theories_art.bbl
+[803] Biber.pm:128> INFO - WARNINGS: 1

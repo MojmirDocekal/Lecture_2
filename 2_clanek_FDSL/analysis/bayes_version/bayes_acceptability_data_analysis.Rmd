@@ -1,0 +1,103 @@
+# Bayes regression model
+
+- initialization
+
+- continues
+
+
+# Negative elements: Acceptability}
+
+Loading data.
+
+```{r}
+
+library(tidybayes)
+library(dplyr)
+library(ggplot2)
+library(rstanarm)
+library(brms)
+```
+
+Helper functions.
+
+```{r}
+
+
+rename <- function(plot_draws) {
+
+pars = c("(Intercept)", "b_negexpzadny", "b_constructionbottom", "b_constructionequative", "b_constructionnegraising","b_constructiontop", "b_negexpzadny:constructionbottom", "b_negexpzadny:constructionequative", "b_negexpzadny:constructionnegraising","b_negexpzadny:constructiontop")
+
+plot_draws$.variable[which(plot_draws$.variable=="b_negexpzadny")] <- "zadny"
+plot_draws$.variable[which(plot_draws$.variable=="b_constructionbottom")] <- "bottom"
+plot_draws$.variable[which(plot_draws$.variable=="b_constructionequative")] <- "equative"
+plot_draws$.variable[which(plot_draws$.variable=="b_constructionnegraising")] <- "nr"
+plot_draws$.variable[which(plot_draws$.variable=="b_constructiontop")] <- "top"
+plot_draws$.variable[which(plot_draws$.variable=="b_negexpzadny:constructionbottom")] <- "zadny:bottom"
+plot_draws$.variable[which(plot_draws$.variable=="b_negexpzadny:constructionequative")] <- "zadny:equative"
+plot_draws$.variable[which(plot_draws$.variable=="b_negexpzadny:constructionnegraising")] <- "zadny:nr"
+plot_draws$.variable[which(plot_draws$.variable=="b_negexpzadny:constructiontop")] <- "zadny:top"
+
+plot_draws <- ungroup(plot_draws)
+
+plot_draws <- plot_draws %>% group_by(.variable)
+
+return (plot_draws)
+
+}
+
+```
+
+- code
+
+```{r}
+
+dataAcc <- read.csv("final_items.csv", header=TRUE, sep=";")
+str(dataAcc)
+
+head(dataAcc)
+
+dataAcc$response <- as.integer(as.character(dataAcc$rating1))
+
+dataAcc$response
+
+```
+
+Running an incomplete model.
+
+```{r}
+
+modelAcc <- response ~ 1 + negexp * construction   + (1 + negexp * construction |participant) + (1 + negexp * construction |item)
+
+nchains <- 4
+
+used_prior <- c(prior_string("normal(0, 5)", class="Intercept"),
+                prior_string("normal(0, 5)", class="b"),
+                prior_string("normal(0, 5)", class="sd", group="participant"), #implicit half-normal; see https://rdrr.io/cran/brms/man/set_prior.html
+                prior_string("normal(0, 5)", class="sd", group="item")) #implicit half-normal; see https://rdrr.io/cran/brms/man/set_prior.html
+
+print(make_stancode(modelAcc, data=dataAcc, chains=nchains, iter=5000, family=cumulative("probit"), prior=used_prior))
+mfull <- brm(modelAcc, data=dataAcc, chains=nchains, iter=5000, inits="0", family=cumulative("probit"), prior=used_prior) #random initialization crashes (probably overflows); initialization at 0 works ok; see here: https://discourse.mc-stan.org/t/rejecting-initial-value-using-non-logit-link-for-cumulative-ordinal-models/4223/4; 5,000 iterations (fewer iterations give problems with chain mixing)
+summary(mfull)
+
+pars = c("(Intercept)", "b_negexpzadny", "b_constructionbottom", "b_constructionequative", "b_constructionnegraising","b_constructiontop", "b_negexpzadny:constructionbottom", "b_negexpzadny:constructionequative", "b_negexpzadny:constructionnegraising","b_negexpzadny:constructiontop")
+
+plot_draws <- mfull %>%
+  gather_draws(!!sym(pars[2]), !!sym(pars[3]), !!sym(pars[4]), !!sym(pars[5]), !!sym(pars[6]), !!sym(pars[7]), !!sym(pars[8]), !!sym(pars[9]), !!sym(pars[10]))
+
+plot_draws <- rename(plot_draws)
+
+median_hdi(plot_draws, .width=0.89)
+
+plot_draws %>% group_by(.variable) %>% summarise(Prob_above_zero=length(which(.value>0))/length(.value))
+
+g1 <- ggplot(median_hdi(plot_draws, .width=c(.89, .8)), aes(y = .variable, x = .value)) + 
+  labs(x="Posterior distribution", y="Condition")+
+  geom_pointintervalh(interval_size_range = c(1, 3))+
+  geom_vline(xintercept = 0, linetype = "dashed") + theme_bw(24)
+
+g1
+
+ggsave("acc-results-complex.png", width=14, height=10)
+
+```
+

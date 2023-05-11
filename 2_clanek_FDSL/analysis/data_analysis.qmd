@@ -1,0 +1,1064 @@
+---
+title: "Data analysis"
+author: "MD"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# First import, tidy, ...
+
+```{r}
+library(tidyverse)
+
+filename1 <- "exp_april_2022_RESULTS_2022-05-02-0622.csv"
+filename2 <- "exp_april_2022_RESULTS_2022-05-09-0636.csv"
+
+data1 <- read_csv2(filename1)
+data2 <- read_csv2(filename2)
+
+summary(data1)
+max(data1$participant)
+
+summary(data2)
+
+data2.tmp <- data2 %>% 
+  mutate(data2, participant = participant + max(data1$participant))
+
+data2 <- data2.tmp
+
+summary(data1)
+summary(data2)
+
+# data2$demographic1 <- as.numeric(data2$demographic1)
+
+data3 <- bind_rows(data1, data2)
+
+data3.tmp <- data3
+
+data3.tmp$participant <- as.factor(data3.tmp$participant)
+
+levels(data3.tmp$participant) <- paste(1:length(levels(data3.tmp$participant)), sep="")
+
+data3 <- data3.tmp
+
+summary(data3)
+
+write_csv2(data3, "merged_results.csv")
+
+data <- data3
+```
+
+- now we add demographics
+
+- TODO: some graphs, etc.
+
+```{r}
+
+data_demographics <- read_csv2("merged_demographics_cleaned.csv")
+
+summary(data_demographics)
+
+sd(data_demographics$demographic1, na.rm = TRUE)
+
+data_demographics$participant <- as.factor(data_demographics$participant)
+
+data_demographics2 <- data_demographics %>%
+  select(participant, region_Morava, age_under_27, reading_time_over_60_minutes, demographic1)
+
+data.tmp <- data %>%
+  left_join(data_demographics2, by = "participant")
+
+summary(data.tmp)
+
+data <- data.tmp
+```
+
+- here we continue with filtering
+
+```{r}
+
+items <- filter(data, grepl("^Accept", materials))
+practice <- filter(data, grepl("^Practice", materials))
+
+fillers_good <- filter(data, grepl("^Filler.*Good", materials))
+fillers_bad <- filter(data, grepl("^Filler.*Bad", materials))
+
+fillers <- filter(data, grepl("^Filler.*Bad", materials) | grepl("^Filler.*Good", materials))
+
+nrow(fillers_good) + nrow (fillers_bad) == nrow (fillers)
+nrow(items) + nrow(practice) + nrow(fillers) == nrow(data)
+
+```
+- fillers
+
+```{r}
+group_by(fillers, condition) %>%
+    summarise(mean(rating1), median = median(rating1))
+
+by_participant_and_condition <- group_by(fillers, participant, condition)
+
+diff_fillers <- summarise(by_participant_and_condition, mean = mean(rating1, na.rm=TRUE), SD = sd(rating1, na.rm=TRUE))
+
+diff_fillers.tmp <- summarise(diff_fillers, difference = mean[2]-mean[1])
+
+ggplot(data = diff_fillers.tmp) + 
+  geom_point(mapping = aes(x = participant, y = difference))
+
+```
+- erase all under the difference =< 2
+
+```{r}
+vector_for_removing <- filter(diff_fillers.tmp, difference <= 3)
+vector_for_removing$participant
+
+clean_items <- filter(items, !(participant %in% vector_for_removing$participant))
+clean_fillers <- filter(fillers, !(participant %in% vector_for_removing$participant))
+```
+
+- check
+
+```{r}
+((select(items, participant) %>% 
+  unique %>%
+   nrow)-(select(clean_items, participant) %>% 
+  unique %>%
+   nrow)==nrow(vector_for_removing))
+```
+
+- all clean
+
+```{r}
+items <- clean_items
+fillers <- clean_fillers
+
+items <- group_by(items, participant, condition)
+items
+
+summarise(items, mean_cond_accept = mean(rating1))
+
+items <- group_by(items, condition)
+summarise(items, mean_cond_accept = mean(rating1), median_cond_accept = median(rating1), sd_cond_accept = sd(rating1))
+
+ggplot(items, aes(x = condition, y = rating1)) +
+geom_boxplot()
+```
+- better graph
+
+```{r}
+items$classNExpr <- "Z"
+items$classNExpr[items$condition == "ABott"|items$condition == "ATop"|items$condition == "basA"|items$condition == "EqA"|items$condition == "NRA"] <- "A"
+
+p <- ggplot(items, aes(condition, rating1, fill = classNExpr)) +
+  stat_summary(geom = "bar", fun.y = mean, position = "dodge") +
+  stat_summary(geom = "errorbar", fun.data = mean_se, size=.3,
+               width=.2,
+               position=position_dodge(.9))
+p  + labs(y = "acceptability") +
+   theme(axis.text=element_text(size=15),
+           axis.title=element_text(size=17,face="bold"))
+
+ggsave("error_bar.png", p)
+
+```
+
+- graph just for the first part
+
+```{r}
+items_without_probability <- items %>%
+    filter((condition != "ABott" & condition != "ATop" & condition != "ZBott" & condition != "ZTop")) %>%
+    group_by(participant) 
+
+p2 <- ggplot(items_without_probability, aes(condition, rating1, fill = classNExpr)) +
+  stat_summary(geom = "bar", fun.y = mean, position = "dodge") +
+  stat_summary(geom = "errorbar", fun.data = mean_se, size=.3,
+               width=.2,
+               position=position_dodge(.9))
+p2  + labs(y = "acceptability") +
+   theme(axis.text=element_text(size=15),
+           axis.title=element_text(size=17,face="bold"))
+
+ggsave("error_bar_without_prob.png", p2)
+ggsave("error_bar_without_prob.eps", p2)
+
+```
+
+
+# And some models
+
+- first main effects
+
+```{r}
+items$condition <- as.factor(items$condition)
+
+levels(items$condition)
+
+library("lmerTest")
+
+items$condition <- relevel(items$condition, ref="basZ")
+
+m1 <- lmer(as.numeric(rating1) ~ condition + (1|participant) + (1|item), data=items)
+summary(m1)
+```
+
+- better base model: with interactions
+- let's start with the part without probability
+
+```{r}
+
+summary(items)
+
+(2406/10)*6
+
+items_without_probability <- items %>%
+    filter((condition != "ABott" & condition != "ATop" & condition != "ZBott" & condition != "ZTop")) %>%
+    group_by(participant) 
+
+
+
+items_without_probability$condition <- as.factor(items_without_probability$condition)
+items_without_probability$classNExpr <- as.factor(items_without_probability$classNExpr)
+
+
+levels(items_without_probability$condition)
+
+items_without_probability$condition <- relevel(items_without_probability$condition, ref="basZ")
+
+items_without_probability$condition2 <- "NA"
+items_without_probability$condition2[items_without_probability$condition == "basA" | items_without_probability$condition == "basZ"] <- "bas"
+
+items_without_probability$condition2[items_without_probability$condition == "NRA" | items_without_probability$condition == "NRZ"] <- "NR"
+
+items_without_probability$condition2[items_without_probability$condition == "EqA" | items_without_probability$condition == "EqZ"] <- "Eq"
+
+items_without_probability$condition <- items_without_probability$condition2
+
+items_without_probability <- select(items_without_probability, -condition2)
+
+
+m1 <- lmer(as.numeric(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_without_probability)
+summary(m1)
+
+m2 <- lm(as.numeric(rating1) ~ condition * classNExpr, data=items_without_probability)
+summary(m2)
+
+
+```
+
+- now let's do the Bayesian analysis on the data without probability
+
+```{r}
+library(rstanarm)
+library(bayestestR)
+
+# m1 <- lmer(as.numeric(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_without_probability)
+
+items_without_probability$item <- as.factor(items_without_probability$item)
+
+items_without_probability$condition <- as.factor(items_without_probability$condition)
+
+items_without_probability$condition <- relevel(items_without_probability$condition, ref="bas")
+items_without_probability$classNExpr <- relevel(items_without_probability$classNExpr, ref="A")
+
+# m1 <- lmer(as.numeric(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_without_probability)
+
+# full random effects:
+#model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr + (1 + participant|item) + (1+item|participant), data=items_without_probability, seed=111)
+
+# partial random effects
+model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr + (1|item) + (1|participant), data=items_without_probability, seed=111)
+
+
+#model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr + (1|item) + (1|participant), data=items_without_probability, seed=111)
+print(model_bayes, digits = 3)
+
+describe_posterior(model_bayes)
+
+```
+
+- adding priors
+
+
+```{r}
+library(brms)
+
+used_prior <- c(prior_string("normal(0, 5)", class="Intercept"),
+                prior_string("normal(0, 5)", class="b"),
+                prior_string("normal(0, 5)", class="sd", group="participant"), #implicit half-normal; see https://rdrr.io/cran/brms/man/set_prior.html
+                prior_string("normal(0, 5)", class="sd", group="item")) #implicit half-normal; see https://rdrr.io/cran/brms/man/set_prior.html
+
+model_bayes2 <- brm(as.numeric(rating1) ~ condition * classNExpr + (1|item) + (1|participant), data=items_without_probability, seed=111, prior = used_prior)
+
+
+#model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr + (1|item) + (1|participant), data=items_without_probability, seed=111)
+print(model_bayes2, digits = 3)
+
+describe_posterior(model_bayes2)
+
+plot(describe_posterior(model_bayes2))
+
+
+plot(describe_posterior(model_bayes))
+
+p <- plot(describe_posterior(model_bayes))
+
+p
+
+ggsave("posterior_graph.eps", p)
+ggsave("posterior_graph.pdf", p)
+
+bfactors <- bayesfactor(model_bayes)
+print(bfactors, digits=3)
+
+library(easystats)
+
+exp(bfactors$log_BF)
+interpret_bf(exp(bfactors$log_BF), include_value = TRUE)
+
+result <- rope(model_bayes, ci = c(0.95))
+
+plot(result)
+
+p <- plot(result)
+p <- p + ggplot2::labs(x = "Posterior distribution", y = "Condition")
+p
+#ggsave("rope_final_graph.png")
+
+library(bayestestR)
+
+equivalence_test(model_bayes)
+
+plot(equivalence_test(model_bayes))
+
+# library(emmeans)
+# model_bayes.em.s <- emmeans(model_bayes, c("GrouppedCondition","Age"))
+# pairs(model_bayes.em.s)
+# equivalence_test(pairs(model_bayes.em.s))
+
+```
+
+
+- here we look at demographics
+- first region
+- and check the Bayesian version too
+
+```{r}
+
+m2d <- lmer(as.numeric(rating1) ~ condition * classNExpr * region_Morava + (1|participant) + (1|item), data=items_without_probability)
+summary(m2d)
+
+library(rstanarm)
+library(bayestestR)
+
+model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr * region_Morava + (1|item) + (1|participant), data=items_without_probability, seed=111)
+print(model_bayes, digits = 3)
+
+describe_posterior(model_bayes)
+
+bfactors <- bayesfactor(model_bayes)
+print(bfactors, digits=3)
+
+library(easystats)
+
+exp(bfactors$log_BF)
+interpret_bf(exp(bfactors$log_BF), include_value = TRUE)
+
+```
+
+
+
+- nothing
+- then age
+
+```{r}
+
+m2da <- lmer(as.numeric(rating1) ~ condition * classNExpr * age_under_27 + (1|participant) + (1|item), data=items_without_probability)
+summary(m2da)
+
+model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr * age_under_27 + (1|item) + (1|participant), data=items_without_probability, seed=111)
+print(model_bayes, digits = 3)
+
+describe_posterior(model_bayes)
+
+bfactors <- bayesfactor(model_bayes)
+print(bfactors, digits=3)
+
+library(easystats)
+
+exp(bfactors$log_BF)
+interpret_bf(exp(bfactors$log_BF), include_value = TRUE)
+
+```
+
+- only strange interaction effect: conditionProb:age_under_27TRUE                0.84099    0.41727 1494.67832   2.015    0.044 * 
+
+- also try z-transformation and linear regression for years
+- first z-transformation
+
+
+
+```{r}
+
+items_without_probability.tmp <- items_without_probability %>%
+    group_by(participant)
+
+items_without_probability.tmp$MA = mean(items_without_probability.tmp$demographic1, na.rm=TRUE)
+
+items_without_probability.tmp$SD = sd(items_without_probability.tmp$demographic1, na.rm=TRUE)
+
+items_without_probability.tmp <- items_without_probability.tmp %>%
+    mutate(AgeTransformed = (demographic1 - MA)/SD)
+
+hist(items_without_probability.tmp$AgeTransformed)
+
+m2da_2 <- lmer(as.numeric(rating1) ~ condition * classNExpr * AgeTransformed + (1|participant) + (1|item), data=items_without_probability.tmp)
+summary(m2da_2)
+
+model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr * AgeTransformed + (1|item) + (1|participant), data=items_without_probability.tmp, seed=111)
+print(model_bayes, digits = 3)
+
+describe_posterior(model_bayes)
+
+bfactors <- bayesfactor(model_bayes)
+print(bfactors, digits=3)
+
+library(easystats)
+
+exp(bfactors$log_BF)
+interpret_bf(exp(bfactors$log_BF), include_value = TRUE)
+
+```
+
+
+- finally reading time:
+
+```{r}
+
+m2dr <- lmer(as.numeric(rating1) ~ condition * classNExpr * reading_time_over_60_minutes + (1|participant) + (1|item), data=items_without_probability)
+summary(m2dr)
+
+model_bayes <- stan_glmer(as.numeric(rating1) ~ condition * classNExpr * reading_time_over_60_minutes + (1|item) + (1|participant), data=items_without_probability.tmp, seed=111)
+print(model_bayes, digits = 3)
+
+describe_posterior(model_bayes)
+
+bfactors <- bayesfactor(model_bayes)
+print(bfactors, digits=3)
+
+library(easystats)
+
+exp(bfactors$log_BF)
+interpret_bf(exp(bfactors$log_BF), include_value = TRUE)
+```
+
+- again maybe interesting observation: people with higher reading time seem to accept NR more generally (conditionNR:reading_time_over_60_minutesTRUE                  0.6803     0.3317 1497.0754   2.051   0.0405 *)
+
+- end of demographics
+
+
+- in the part without probability everything works as it should
+- now adding step by step probability
+- first bottom (more expected)
+
+```{r eval=FALSE, include=FALSE}
+(2406/10)*8
+
+items_with_probability_bott <- items %>%
+    filter((condition != "ATop" & condition != "ZTop")) %>%
+    group_by(participant) 
+
+items_with_probability_bott$condition <- as.factor(items_with_probability_bott$condition)
+items_with_probability_bott$classNExpr <- as.factor(items_with_probability_bott$classNExpr)
+
+
+levels(items_with_probability_bott$condition)
+
+items_with_probability_bott$condition <- relevel(items_with_probability_bott$condition, ref="basZ")
+
+items_with_probability_bott$condition2 <- "NA"
+
+items_with_probability_bott$condition2[items_with_probability_bott$condition == "basA" | items_with_probability_bott$condition == "basZ"] <- "bas"
+
+items_with_probability_bott$condition2[items_with_probability_bott$condition == "NRA" | items_with_probability_bott$condition == "NRZ"] <- "NR"
+
+items_with_probability_bott$condition2[items_with_probability_bott$condition == "EqA" | items_with_probability_bott$condition == "EqZ"] <- "Eq"
+
+items_with_probability_bott$condition2[items_with_probability_bott$condition == "ABott" | items_with_probability_bott$condition == "ZBott"] <- "Prob"
+
+
+items_with_probability_bott$condition <- items_with_probability_bott$condition2
+
+items_with_probability_bott <- select(items_with_probability_bott, -condition2)
+
+m2 <- lmer(as.numeric(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_with_probability_bott)
+summary(m2)
+
+```
+
+- adding clmm package
+
+```{r eval=FALSE, include=FALSE}
+library("ordinal")
+
+# m2_clmm <- clmm(as.factor(rating1) ~ condition * classNExpr + (1+condition|participant) + (1+condition|item), data=items_with_probability_bott)	
+# faster version
+m2_clmm <- clmm(as.factor(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_with_probability_bott)
+summary(m2_clmm)	
+```
+
+
+
+
+- now top
+
+```{r eval=FALSE, include=FALSE}
+(2406/10)*8
+
+items_with_probability_top <- items %>%
+    filter((condition != "ABott" & condition != "ZBott")) %>%
+    group_by(participant) 
+
+items_with_probability_top$condition <- as.factor(items_with_probability_top$condition)
+items_with_probability_top$classNExpr <- as.factor(items_with_probability_top$classNExpr)
+
+
+levels(items_with_probability_top$condition)
+
+items_with_probability_top$condition <- relevel(items_with_probability_top$condition, ref="basZ")
+
+items_with_probability_top$condition2 <- "NA"
+
+items_with_probability_top$condition2[items_with_probability_top$condition == "basA" | items_with_probability_top$condition == "basZ"] <- "bas"
+
+items_with_probability_top$condition2[items_with_probability_top$condition == "NRA" | items_with_probability_top$condition == "NRZ"] <- "NR"
+
+items_with_probability_top$condition2[items_with_probability_top$condition == "EqA" | items_with_probability_top$condition == "EqZ"] <- "Eq"
+
+items_with_probability_top$condition2[items_with_probability_top$condition == "ATop" | items_with_probability_top$condition == "ZTop"] <- "Prob"
+
+
+items_with_probability_top$condition <- items_with_probability_top$condition2
+
+items_with_probability_top <- select(items_with_probability_top, -condition2)
+
+m3 <- lmer(as.numeric(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_with_probability_top)
+summary(m3)
+
+```
+
+- adding clmm package
+
+```{r eval=FALSE, include=FALSE}
+library("ordinal")
+
+#m3_clmm <- clmm(as.factor(rating1) ~ condition * classNExpr + (1+condition|participant) + (1+condition|item), data=items_with_probability_top)	
+# simplified for speed below
+m3_clmm <- clmm(as.factor(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_with_probability_top)
+summary(m3_clmm)	
+
+```
+- now let's try to remove outliers who treat *ani* as neg-word
+
+```{r eval=FALSE, include=FALSE}
+items_without_probability.by_subject <- items_without_probability %>%
+  group_by(participant,condition,classNExpr)%>% 
+  summarise(
+    min = min(rating1),
+    max = max(rating1),
+    mean = mean(rating1)
+  )
+
+arrange(items_without_probability.by_subject, desc(mean))
+
+filter(items_without_probability.by_subject, mean >= 5 & condition == "Eq" & classNExpr == "A")
+
+filter(items_without_probability.by_subject, mean >= 5 & condition == "NR" & classNExpr == "A")
+
+comparison_vector1 <- filter(items_without_probability.by_subject, mean >= 5 & condition == "Eq" & classNExpr == "A")
+
+comparison_vector2 <- filter(items_without_probability.by_subject, mean >= 5 & condition == "NR" & classNExpr == "A")
+
+intersect(comparison_vector1$participant, comparison_vector2$participant)
+
+vector_for_removing <- filter(items_without_probability.by_subject, mean >= 5 & condition == "Eq" & classNExpr == "A")
+vector_for_removing$participant
+
+items_without_probability.by_subject.filtered <- filter(items_without_probability.by_subject, !(participant %in% vector_for_removing$participant))
+
+items_without_probability.filtered <- filter(items_without_probability, !(participant %in% vector_for_removing$participant))
+
+m3_clmm_filtered <- clmm(as.factor(rating1) ~ condition * classNExpr + (1|participant) + (1|item), data=items_without_probability.filtered)
+summary(m3_clmm_filtered)	
+
+
+```
+
+- it seems it doesn't help
+
+- graphs for all
+
+```{r eval=FALSE, include=FALSE}
+items_with_probability_all <- items %>%
+    group_by(participant) 
+
+items_with_probability_all$condition <- as.factor(items_with_probability_all$condition)
+items_with_probability_all$classNExpr <- as.factor(items_with_probability_all$classNExpr)
+
+
+levels(items_with_probability_all$condition)
+
+items_with_probability_all$condition <- relevel(items_with_probability_all$condition, ref="basZ")
+
+items_with_probability_all$condition2 <- "NA"
+
+items_with_probability_all$condition2[items_with_probability_all$condition == "basA" | items_with_probability_all$condition == "basZ"] <- "bas"
+
+items_with_probability_all$condition2[items_with_probability_all$condition == "NRA" | items_with_probability_all$condition == "NRZ"] <- "NR"
+
+items_with_probability_all$condition2[items_with_probability_all$condition == "EqA" | items_with_probability_all$condition == "EqZ"] <- "Eq"
+
+items_with_probability_all$condition2[items_with_probability_all$condition == "ATop" | items_with_probability_all$condition == "ZTop"] <- "Prob"
+
+items_with_probability_all$condition2[items_with_probability_all$condition == "ABott" | items_with_probability_all$condition == "ZBott"] <- "Prob"
+
+items_with_probability_all$prob_type_bott <- TRUE
+
+items_with_probability_all$prob_type_bott[items_with_probability_all$condition == "ATop" | items_with_probability_all$condition == "ZTop"] <- FALSE
+
+
+#items_with_probability_all$condition <- items_with_probability_all$condition2
+
+# items_with_probability_all <- select(items_with_probability_all, -condition2)
+
+items_with_probability_all_bottom_for_graph <- filter(items_with_probability_all, (prob_type_bott == TRUE & condition2 == "Prob") |  (condition2 == "bas" | condition2 == "NR" | condition2 == "Eq" )) 
+
+g_hist <- ggplot(items_with_probability_all_bottom_for_graph, aes(x = rating1, 
+    fill = condition2)) +
+geom_histogram(position = "dodge", alpha = 1, binwidth = 0.5) + 
+  facet_grid(. ~ classNExpr)
+
+g_hist
+
+ggsave("histogram_faceted_prob_bott.png", g_hist)
+
+items_with_probability_all_top_for_graph <- filter(items_with_probability_all, (prob_type_bott == FALSE & condition2 == "Prob") |  (condition2 == "bas" | condition2 == "NR" | condition2 == "Eq" )) 
+
+g_hist2 <- ggplot(items_with_probability_all_top_for_graph, aes(x = rating1, 
+    fill = condition2)) +
+geom_histogram(position = "dodge", alpha = 1, binwidth = 0.5) + 
+  facet_grid(. ~ classNExpr)
+
+g_hist2
+
+ggsave("histogram_faceted_prob_top.png", g_hist2)
+
+```
+
+
+## Correlations
+
+
+- z-transformation
+- but first better descriptive stats
+- NR vs. baseline
+
+```{r eval=FALSE, include=FALSE}
+NR_vs_baseline <- filter(items_without_probability, condition %in% c("NR","bas"))
+
+N    = length(NR_vs_baseline$rating1)
+N
+NR_vs_baseline.summary <- NR_vs_baseline %>%
+  group_by(condition,classNExpr) %>%
+  summarise(
+    sd = sd(rating1),
+    se   = sd / sqrt(N),
+    acceptability = mean(rating1)
+  )
+NR_vs_baseline.summary
+
+
+```
+
+- now by subject
+
+```{r eval=FALSE, include=FALSE}
+NR_vs_baseline.by_subject <- NR_vs_baseline %>%
+  group_by(participant,condition,classNExpr)%>% 
+  summarise(
+    min = min(rating1),
+    max = max(rating1),
+    mean = mean(rating1)
+  )
+  
+NR_vs_baseline.by_subject
+```
+
+- graphs
+
+```{r eval=FALSE, include=FALSE}
+dodge <- position_dodge(width=0.3)
+qplot(condition, acceptability, colour=classNExpr, pch=classNExpr, lty=classNExpr, data=NR_vs_baseline.summary, geom="point", size=I(3))+ geom_errorbar(aes(ymin=acceptability-sd, ymax=acceptability+sd), width=0.4, size=I(0.9)) + theme(axis.text.x = element_text(size = 15, colour = "black"), axis.text.y = element_text(angle=0, hjust=0.5, size = 17, colour = "black"), axis.title.y=element_text(size=20), title=element_text(size=20), legend.text=element_text(size=20))
+
+
+ggplot(NR_vs_baseline, aes(x = rating1, fill = condition)) +
+geom_histogram(position = "dodge", alpha = 1, binwidth = 0.5)
+```
+
+- graph for all conditions
+
+
+
+- subjects consistently rating NR high but nothing like that hapens with baseline
+- no subject ranks baseline bad (consistently or not)
+- great variation between speakers but only in some environments
+
+```{r eval=FALSE, include=FALSE}
+NR_vs_baseline.by_subject <- NR_vs_baseline %>%
+  group_by(participant,condition,classNExpr)%>% 
+  summarise(
+    min = min(rating1),
+    max = max(rating1),
+    mean = mean(rating1)
+  )
+
+arrange(NR_vs_baseline.by_subject, desc(mean))
+
+filter(NR_vs_baseline.by_subject, mean >= 5 & condition == "NR")
+
+filter(NR_vs_baseline.by_subject, mean <= 2 & condition == "bas")
+
+
+```
+
+- but it's not general acceptance of *ani*
+- adding equatives (graph only for *ani*)
+- because people who accept *ani* with equative are different people than those who accept *ani* with NRs
+- only 3 subjects appear in both groups
+
+```{r eval=FALSE, include=FALSE}
+items_without_probability_A <- filter(items_without_probability, classNExpr == "A")
+
+ggplot(items_without_probability_A, aes(x = rating1, fill = condition)) +
+geom_histogram(position = "dodge", alpha = 1, binwidth = 0.5)
+
+items_without_probability.by_subject <- items_without_probability %>%
+  group_by(participant,condition,classNExpr)%>% 
+  summarise(
+    min = min(rating1),
+    max = max(rating1),
+    mean = mean(rating1)
+  )
+
+arrange(items_without_probability.by_subject, desc(mean))
+
+filter(items_without_probability.by_subject, mean >= 5 & condition == "Eq" & classNExpr == "A")
+
+filter(NR_vs_baseline.by_subject, mean >= 5 & condition == "NR" & classNExpr == "A")
+
+comparison_vector1 <- filter(items_without_probability.by_subject, mean >= 5 & condition == "Eq" & classNExpr == "A")
+
+comparison_vector2 <- filter(NR_vs_baseline.by_subject, mean >= 5 & condition == "NR" & classNExpr == "A")
+
+intersect(comparison_vector1$participant, comparison_vector2$participant)
+
+```
+
+- now correlations
+- first z-transformation
+
+```{r eval=FALSE, include=FALSE}
+items_without_probability.tmp <- items_without_probability %>%
+    group_by(participant) %>%
+    summarise(MA = mean(rating1), SD = sd(rating1)) %>%
+    inner_join(items_without_probability, by="participant")
+
+items_without_probability <- items_without_probability.tmp %>%
+    mutate(AnswerTransformed = (rating1 - MA)/SD)
+
+hist(items_without_probability$AnswerTransformed)
+
+items_without_probability.NRA <- filter(items_without_probability, condition == "NR" & classNExpr == "A")
+
+hist(items_without_probability.NRA$AnswerTransformed)
+
+items_without_probability.BASA <- filter(items_without_probability, condition == "bas" & classNExpr == "A")
+
+hist(items_without_probability.BASA$AnswerTransformed)
+
+items_without_probability.EQA <- filter(items_without_probability, condition == "Eq" & classNExpr == "A")
+
+hist(items_without_probability.EQA$AnswerTransformed)
+
+
+```
+
+```{r eval=FALSE, include=FALSE}
+items_without_probability.NR <- items_without_probability %>%
+    filter(condition == "NR", classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MANR = mean(AnswerTransformed)) 
+
+items_without_probability.bas <- items_without_probability %>%
+    filter(condition == "bas", classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MAbas = mean(AnswerTransformed)) 
+
+items_without_probability.Eq <- items_without_probability %>%
+    filter(condition == "Eq", classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MAEq = mean(AnswerTransformed)) 
+
+dataf_merged <- left_join(items_without_probability.NR, items_without_probability.Eq, by="participant")
+
+cor.test(dataf_merged$MAEq, dataf_merged$MANR)
+
+m1 <- lm(MAEq ~ MANR, data=dataf_merged)
+print(m1)
+
+str(dataf_merged)
+
+colnames(dataf_merged)[2] <- "Equatives"
+colnames(dataf_merged)[3] <- "Neg_raising"
+
+g1 <- ggplot(dataf_merged, aes(Equatives, Neg_raising))
+
+g1 <- g1 + geom_point() + theme_gray(24) + geom_smooth(method='lm',formula=y~x, se=TRUE)
+
+g1
+
+g1 <- g1 + labs(x = "Equatives (z-transformed)", y = "NegRaising (z-transformed)")
+
+# g1 + theme_bw()
+
+ggsave("correlations_ani.png")
+
+
+# now check against baseline
+
+dataf_merged <- left_join(items_without_probability.bas, items_without_probability.Eq, by="participant")
+
+cor.test(dataf_merged$MAbas, dataf_merged$MAEq)
+
+m1 <- lm(MAEq ~ MAbas, data=dataf_merged)
+print(m1)
+
+str(dataf_merged)
+
+colnames(dataf_merged)[2] <- "Baseline"
+colnames(dataf_merged)[3] <- "Equatives"
+
+g1 <- ggplot(dataf_merged, aes(Baseline, Equatives))
+
+g1 <- g1 + geom_point() + theme_gray(24) + geom_smooth(method='lm',formula=y~x, se=TRUE)
+
+g1
+
+g1 <- g1 + labs(x = "Equatives (z-transformed)", y = "NegRaising (z-transformed)")
+
+```
+
+
+
+- correlations
+- first equatives with NR
+
+```{r eval=FALSE, include=FALSE}
+items.Eq <- items %>%
+    filter((condition == "EqA" | condition == "EqZ"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MAEq = mean(AnswerTransformed)) 
+
+items.NR <- items %>%
+    filter((condition == "NRA" | condition == "NRZ"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MANR = mean(AnswerTransformed)) 
+
+items_merged <- left_join(items.Eq, items.NR, by="participant")
+
+cor.test(items_merged$MAEq, items_merged$MANR)
+
+m1 <- lm(MAEq ~ MANR, data=items_merged)
+print(m1)
+
+str(items_merged)
+
+colnames(items_merged)[2] <- "Equatives"
+colnames(items_merged)[3] <- "Neg_raising"
+
+g1 <- ggplot(items_merged, aes(Equatives, Neg_raising))
+
+g1 <- g1 + geom_point() + theme_gray(24) + geom_smooth(method='lm',formula=y~x, se=TRUE)
+
+g1
+
+# g1 <- g1 + labs(x = "Likelihood (z-transformed)", y = "NegRaising (z-transformed)")
+
+#g1 + theme_bw()
+
+
+```
+- next ATop and NR
+
+```{r eval=FALSE, include=FALSE}
+items.Prob <- items %>%
+    filter((condition == "ATop" | condition == "ABott"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MAProb = mean(AnswerTransformed)) 
+
+items.NR <- items %>%
+    filter((condition == "NRA" | condition == "NRZ"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MANR = mean(AnswerTransformed)) 
+
+items_merged <- left_join(items.Prob, items.NR, by="participant")
+
+cor.test(items_merged$MAProb, items_merged$MANR)
+
+m2 <- lm(MAProb ~ MANR, data=items_merged)
+print(m2)
+
+str(items_merged)
+
+colnames(items_merged)[2] <- "ProbabilityTop"
+colnames(items_merged)[3] <- "Neg_raising"
+
+g2 <- ggplot(items_merged, aes(ProbabilityTop, Neg_raising))
+
+g2 <- g2 + geom_point() + theme_gray(24) + geom_smooth(method='lm',formula=y~x, se=TRUE)
+
+g2
+
+# g1 <- g1 + labs(x = "Likelihood (z-transformed)", y = "NegRaising (z-transformed)")
+
+#g1 + theme_bw()
+
+
+```
+
+- checking against baseline
+
+```{r eval=FALSE, include=FALSE}
+items.Bas <- items %>%
+    filter((condition == "basA" | condition == "basZ"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MABas = mean(AnswerTransformed)) 
+
+items.NR <- items %>%
+    filter((condition == "NRA" | condition == "NRZ"), classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MANR = mean(AnswerTransformed)) 
+
+items_merged <- left_join(items.Bas, items.NR, by="participant")
+
+cor.test(items_merged$MABas, items_merged$MANR)
+
+m3 <- lm(MABas ~ MANR, data=items_merged)
+print(m3)
+
+str(items_merged)
+
+colnames(items_merged)[2] <- "Baseline"
+colnames(items_merged)[3] <- "Neg_raising"
+
+g3 <- ggplot(items_merged, aes(Baseline, Neg_raising))
+
+g3 <- g2 + geom_point() + theme_gray(24) + geom_smooth(method='lm',formula=y~x, se=TRUE)
+
+g3
+
+g3 <- g3 + labs(x = "Baseline (z-transformed)", y = "NegRaising (z-transformed)")
+
+g3
+
+#g1 + theme_bw()
+
+
+```
+
+## old analysis follows
+
+- not run
+
+
+```{r eval=FALSE, include=FALSE}
+
+items$condition <- relevel(items$condition, ref="NRZ")
+
+m2 <- lmer(as.numeric(rating1) ~ condition + (1|participant) + (1|item), data=items)
+summary(m2)
+
+items$condition <- relevel(items$condition, ref="EqZ")
+
+m3 <- lmer(as.numeric(rating1) ~ condition + (1|participant) + (1|item), data=items)
+summary(m3)
+
+items$condition <- relevel(items$condition, ref="ABott")
+
+m4 <- lmer(as.numeric(rating1) ~ condition + (1|participant) + (1|item), data=items)
+summary(m4)
+
+items$condition <- relevel(items$condition, ref="ZBott")
+
+m5 <- lmer(as.numeric(rating1) ~ condition + (1|participant) + (1|item), data=items)
+summary(m5)
+
+
+```
+
+- next pairwise comparison
+
+```{r}{r eval=FALSE, include=FALSE}
+library(emmeans)
+
+emmeans(m1, list(pairwise ~ condition), adjust = "tukey")
+
+```
+
+
+- probability part
+
+```{r eval=FALSE, include=FALSE}
+items.AProbDiffTop <- items %>%
+    filter(condition == "ATop", classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MATop = mean(rating1)) 
+
+items.AProbDiffBott <- items %>%
+    filter(condition == "ABott", classNExpr == "A") %>%
+    group_by(participant) %>%
+    summarise(MABot = mean(rating1)) 
+
+items.AProbDiff <- items.AProbDiffBott %>% add_column(items.AProbDiffTop$MATop)
+
+diff <- items.AProbDiff %>%
+  summarise(MADiff = `items.AProbDiffTop$MATop` - items.AProbDiff$MABot)
+
+items.AProbDiff <- items.AProbDiffBott %>% add_column(abs(diff))
+
+items.ZProbDiffTop <- items %>%
+    filter(condition == "ZTop", classNExpr == "Z") %>%
+    group_by(participant) %>%
+    summarise(MZTop = mean(rating1)) 
+
+items.ZProbDiffBott <- items %>%
+    filter(condition == "ZBott", classNExpr == "Z") %>%
+    group_by(participant) %>%
+    summarise(MZBot = mean(rating1)) 
+
+items.ZProbDiff <- items.ZProbDiffBott %>% add_column(items.ZProbDiffTop$MZTop)
+
+diff <- items.ZProbDiff %>%
+  summarise(MZDiff = `items.ZProbDiffTop$MZTop` - items.ZProbDiff$MZBot)
+
+items.ZProbDiff <- items.ZProbDiffBott %>% add_column(abs(diff))
+
+t.test(items.AProbDiff$MADiff,items.ZProbDiff$MZDiff)
+
+summary(items.AProbDiff$MADiff)
+summary(items.ZProbDiff$MZDiff)
+
+shapiro.test(items.AProbDiff$MADiff)
+shapiro.test(items.ZProbDiff$MZDiff)
+
+```
+
+

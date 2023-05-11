@@ -1,0 +1,101 @@
+participant;id;trial start utc;trial end utc;time taken sec;demographic1;demographic2;demographic3;demographic4;demographic5;demographic6
+1;NA;2022-04-28T11:52:48Z;2022-04-28T12:00:07Z;439;21;Jihomoravský;2;514324;;
+2;NA;2022-04-28T11:57:06Z;2022-04-28T12:09:31Z;745;65;jižní morava;1 hodinu;nepamatuji se;;
+3;NA;2022-04-28T12:06:54Z;2022-04-28T12:39:00Z;1926;26;Jihomoravského;2 hodiny;448012;;
+4;NA;2022-04-28T12:12:32Z;2022-04-28T12:39:43Z;1631;21;Jihomoravský;1;498765;;
+5;NA;2022-04-28T12:17:42Z;2022-04-28T12:32:49Z;907;44;Jihomoravský;1;11118;;
+6;NA;2022-04-28T12:33:50Z;2022-04-28T12:56:48Z;1378;48;Moravskoslezský;1–2;0000;;
+7;NA;2022-04-28T12:41:29Z;2022-04-28T14:48:24Z;7615;34;Pardubický;1;111111;;
+8;NA;2022-04-28T12:43:04Z;2022-04-28T13:03:16Z;1211;24;Vysočina;2;515243;;
+9;NA;2022-04-28T13:03:00Z;2022-04-28T13:24:19Z;1278;21;Ústecký;2;515095;;
+10;NA;2022-04-28T13:49:20Z;2022-04-28T14:04:17Z;897;24;Vysočina;10;512404;;
+11;NA;2022-04-28T13:50:09Z;2022-04-28T14:13:41Z;1411;27;středočeský;1;517629;;
+12;NA;2022-04-28T14:41:10Z;2022-04-28T15:55:44Z;4473;21;Zlínský kraj;2;526799;;
+13;NA;2022-04-28T15:13:03Z;2022-04-28T15:28:35Z;931;23;Moravskoslezský;0;483415;;
+14;NA;2022-04-28T16:17:37Z;2022-04-28T16:29:31Z;713;27;Jihomoravský;1;408526;;
+15;NA;2022-04-28T16:29:22Z;2022-04-28T16:39:07Z;585;25;Jihočeský;1;449825;;
+16;NA;2022-04-28T18:08:25Z;2022-04-28T18:28:03Z;1177;41;Vysočina;2;40216;;
+17;NA;2022-04-28T18:27:41Z;2022-04-28T18:41:05Z;804;29;Liberecký;2;000000;;
+18;NA;2022-04-28T19:06:35Z;2022-04-28T19:17:48Z;672;20;Praha;2;526290;;
+19;NA;2022-04-29T09:15:12Z;2022-04-29T09:31:24Z;971;23;Praha;hodinu až dvě;494359;;
+20;NA;2022-04-29T09:27:54Z;2022-04-29T14:07:30Z;16776;23;Liberecký;0,5;496977;;
+21;NA;2022-04-29T12:58:50Z;2022-04-29T13:06:33Z;463;21;Moravskoslezský;3;498386;;
+22;NA;2022-04-29T14:57:46Z;2022-04-29T15:11:16Z;809;29;Jihomoravský;1;405782;;
+23;NA;2022-04-29T15:07:27Z;2022-04-29T15:24:51Z;1044;23;Jihomoravský;2;472455;;
+24;NA;2022-04-29T15:13:59Z;2022-04-29T15:36:47Z;1367;20;Zlínský;1-2 hodiny;529392;;
+25;NA;2022-04-29T15:27:15Z;2022-04-29T15:39:32Z;737;71;Jihomoravský;0,5;000;;
+26;NA;2022-04-29T16:25:24Z;2022-04-29T17:06:10Z;2445;22;Jihomoravský kraj;2;526271;;
+27;NA;2022-04-29T20:40:36Z;2022-04-29T20:54:23Z;827;23;Jihomoravský;2;485637;;
+28;NA;2022-04-30T07:31:59Z;2022-04-30T08:58:58Z;5218;63;Jižní Morava;3;1111;;
+29;NA;2022-04-30T08:12:09Z;2022-04-30T08:53:11Z;2462;19;Zlínský kraj;0,5;526840;;
+30;NA;2022-04-30T13:00:56Z;2022-04-30T13:13:51Z;774;22;Jihomoravský kraj;1-2;502432;;
+31;NA;2022-04-30T17:10:24Z;2022-04-30T17:23:46Z;802;32;Jihomoravský;0,5;nemám;;
+32;NA;2022-04-30T18:58:20Z;2022-04-30T19:12:50Z;869;21;Jihomoravský kraj;1;511899;;
+33;NA;2022-05-01T09:01:02Z;2022-05-01T10:05:29Z;3867;24;Vysočina;1-2 hodiny;463611;;
+34;NA;2022-05-01T13:38:50Z;2022-05-01T13:49:11Z;620;40;Plzeňský;50 minut;nemám;;
+35;NA;2022-05-01T21:18:26Z;2022-05-01T21:31:44Z;797;19;Moravskoslezský;2;516249;;
+36;NA;2022-05-02T06:54:35Z;2022-05-02T07:04:25Z;590;35;Jihomoravský;0;215559;Jindřich Zechmeister;zechmeister@ics.muni.cz
+37;NA;2022-05-02T07:57:58Z;2022-05-02T08:02:27Z;269;22;Středočeský;2;1;Jana Pommová;jana.pommova@seznam.cz
+38;NA;2022-05-02T07:59:25Z;2022-05-02T08:06:46Z;441;21;Praha;1-2;i;Ema Dragounová;emadragounova05@gmail.com
+39;NA;2022-05-02T07:59:55Z;2022-05-02T08:18:58Z;1143;21;Zlínský;30 minut;-;Rebeka Zemancová;zemare@seznam.cz
+40;NA;2022-05-02T08:01:36Z;2022-05-02T08:14:39Z;782;20;Praha;1;-;Maria Anna Cukerová;majacukerova1@gmail.com
+41;NA;2022-05-02T08:05:01Z;2022-05-02T08:13:48Z;526;21;Středočeský;1;12;Ivana Pilousková;ivca.pilouskova@seznam.cz
+42;NA;2022-05-02T08:17:06Z;2022-05-02T08:30:27Z;800;24;Středočeský;2;78202833;Eva Divišová;evkalka@seznam.cz
+43;NA;2022-05-02T08:18:09Z;2022-05-02T08:43:31Z;1522;21;Liberecký;0;0;Ondřej Rethy;70891818@fsv.cuni.cz
+44;NA;2022-05-02T08:39:40Z;2022-05-02T08:48:15Z;515;23;Praha;1;Nejsem studentkou MUNI;Denisa Klbiková;denisa.klbikova@email.cz
+45;NA;2022-05-02T08:55:34Z;2022-05-02T09:17:32Z;1318;21;Jihočeský;1 hodinu;1;Barbora Kubešová;barca.kubesova@gmail.com
+46;NA;2022-05-02T08:57:45Z;2022-05-02T09:13:30Z;945;25;Praha;necelou hodinu;-;Eliška Hlaváčková;elca.hlavackova@seznam.cz
+47;NA;2022-05-02T09:03:34Z;2022-05-02T09:16:54Z;799;25;Praha;2;nemám;Kornélie Peterková;kornelkapet@gmail.com
+48;NA;2022-05-02T09:10:19Z;2022-05-02T09:28:25Z;1085;22;Vysočina;1;1;Marie Hledíková;hledikovam@gmail.com
+49;NA;2022-05-02T09:20:39Z;2022-05-02T09:53:12Z;1953;23;Praha;2;1234;Jana Kubátová;j.kubatova@atlas.cz
+50;NA;2022-05-02T09:46:56Z;2022-05-02T10:02:46Z;949;22;Zlínský;0,5;498835;XX;XX
+51;NA;2022-05-02T10:11:57Z;2022-05-02T10:28:23Z;985;26;Středočeský;1;22;Martin Boško;MartinBosko@seznam.cz
+52;NA;2022-05-02T10:38:25Z;2022-05-02T10:49:21Z;656;21;Středočeský;2;67468270;Tereza Kuličková;tkulickova@seznam.cz
+53;NA;2022-05-02T10:43:48Z;2022-05-02T10:55:08Z;679;23;Ústecký;2;12345;Veronika Vrábelová;vrabelova.veronika@seznam.cz
+54;NA;2022-05-02T11:46:21Z;2022-05-02T12:08:51Z;1350;22;Praha;0,5;8469248;Šimon Votava;86493920@fsv.cuni.cz
+55;NA;2022-05-02T12:02:26Z;2022-05-02T12:19:31Z;1025;25;Středočeský kraj;1;2022;Nikola Malečková;nikolamaleckova@seznam.cz
+56;NA;2022-05-02T12:54:10Z;2022-05-02T13:07:24Z;794;20;Středočeský;1 h;8;Lenka Veselá;s16vesela@seznam.cz
+57;NA;2022-05-02T12:56:55Z;2022-05-02T13:07:24Z;628;22;Ústecký;1;154;Dominika Dudová;dominka.dudynka@seznam.cz
+58;NA;2022-05-02T13:02:29Z;2022-05-02T13:22:22Z;1193;25;Jihočeský kraj;1;1234;Tereza Sajtlová;tsajtlova@gmail.com
+59;NA;2022-05-02T13:22:31Z;2022-05-02T14:06:34Z;2643;22;Jihomoravský;2;528148;Amanda;528148@mail.muni.cz
+60;NA;2022-05-02T14:04:39Z;2022-05-02T14:17:33Z;774;20;Karlovarský;1-2 hodiny;13;Sarah Böhmová;bohmovs@natur.cuni.cz
+61;NA;2022-05-02T14:28:42Z;2022-05-02T14:55:57Z;1634;27;Vysočina;1,5;437721;000;000
+62;NA;2022-05-02T16:08:17Z;2022-05-02T16:35:06Z;1609;NA;Středočeský kraj;2 hodiny;_____;Markéta Trojanová;trojanovamarketa3@gmail.com
+63;NA;2022-05-02T16:33:43Z;2022-05-02T16:50:00Z;976;25;Jihočeský;0,5 hodiny;525;Tereza Dvořáková;t.dvorakova96@gmail.com
+64;NA;2022-05-02T16:41:20Z;2022-05-02T17:22:13Z;2453;24;Moravskoslezský kraj;1,5 hodiny;468668;00;00
+65;NA;2022-05-02T17:07:46Z;2022-05-02T17:45:29Z;2263;22;Středočeský;0;123;Tereza Keharová;terezakeharova@seznam.cz
+66;NA;2022-05-02T17:37:36Z;2022-05-02T17:55:03Z;1047;24;Karlovarský kraj;1;1;Dominika Keketiová;dominika.keketiova.98@gmail.com
+67;NA;2022-05-02T21:15:35Z;2022-05-02T21:36:40Z;1264;24;Praha;2h;Neznám;Anna Vlastová;a.vlastova@volny.cz
+68;NA;2022-05-02T21:47:08Z;2022-05-02T21:55:50Z;521;20;Středočeský kraj;1,5;1;Kateřina Dvořáková;46738983@fsv.cuni.cz
+69;NA;2022-05-03T06:05:50Z;2022-05-03T06:43:00Z;2230;21;Praha;3;1;Tomáš Piskáček;piskacek.mot@gmail.com
+70;NA;2022-05-03T06:21:46Z;2022-05-03T08:11:31Z;6584;26;Plzeňského;1 hodinu;000000;Linda Hauerová;linda.hauerova@gmail.com
+71;NA;2022-05-03T07:26:13Z;2022-05-03T08:10:18Z;2644;20;Praha;1;xxx;Matěj Hrnčiřík;70116283@fsv.cuni.cz
+72;NA;2022-05-03T09:42:49Z;2022-05-03T10:04:23Z;1293;21;Středočeský;2 hodiny;394;Nikola Jansová;niki.nikyta@seznam.cz
+73;NA;2022-05-03T10:34:28Z;2022-05-04T06:43:40Z;72552;20;Vysočina;0,5;522993;Fgghjjh;Fghhhhh
+74;NA;2022-05-03T10:48:54Z;2022-05-03T11:00:50Z;715;25;Vysočina;3;1;Hana Hledíková;hledikovahana@gmail.com
+75;NA;2022-05-03T11:12:38Z;2022-05-03T11:45:29Z;1971;20;Jihomoravský;1;523916;Lenka Stahlová;stahlova.lenka@gmail.com
+76;NA;2022-05-03T11:33:37Z;2022-05-03T13:05:03Z;5486;37;Moravskoslezský;4;145339;Eva K.;e.kuchtova@gmail.com
+77;NA;2022-05-03T11:39:17Z;2022-05-03T11:53:55Z;878;21;Vysočina;2;39946338;Eliška Heřmánková;elihermankova@seznam.cz
+78;NA;2022-05-03T11:59:12Z;2022-05-03T12:16:26Z;1034;21;Ústecký;30 min;Chemie a matematika se zaměřením na vzdělávání;Jana Maťáková;matakovj@natur.cuni.cz
+79;NA;2022-05-03T12:11:06Z;2022-05-03T12:32:59Z;1312;23;Praha;přibližně 3 hodiny denně;x;Tereza Brokešová;t.brokesova@seznam.cz
+80;NA;2022-05-03T14:23:46Z;2022-05-03T14:44:08Z;1222;21;Praha;2;526058;Martin Bayraktar;526058@muni.cz
+81;NA;2022-05-03T15:19:37Z;2022-05-03T15:31:42Z;724;21;Královéhradecký kraj;45 min;-;Anna Karnoldová;anna.karnoldova@gmail.com
+82;NA;2022-05-03T16:40:07Z;2022-05-03T17:19:36Z;2369;25;pardubický;0-1;527614;Ivanova Darya;527614@mail.muni.cz
+83;NA;2022-05-03T17:19:05Z;2022-05-03T17:40:41Z;1295;19;Pardubický;30 minut;529393;-;-
+84;NA;2022-05-03T18:17:45Z;2022-05-03T18:29:12Z;687;22;Středočeský, Praha;1;jsem z FF UK;Alžběta Beránková;berankovaalzbeta@gmail.com
+85;NA;2022-05-03T18:34:56Z;2022-05-03T19:08:36Z;2020;21;Liberecký;1;-;Pavlína Brožová;pavlina-brozova@seznam.cz
+86;NA;2022-05-03T21:56:43Z;2022-05-03T22:10:20Z;817;21;Praha;3;509201;Natalie Hronešová;509201.muni@seznam.cz
+87;NA;2022-05-04T06:48:45Z;2022-05-04T07:02:37Z;832;22;Vysočina;0,5h;11;Miloš Havel;milhavznd@seznam.cz
+88;NA;2022-05-04T07:28:26Z;2022-05-04T07:41:37Z;790;25;Středočeský;2;111111111;Vilém Dvořák;75351707@fsv.cuni.cz
+89;NA;2022-05-04T10:59:54Z;2022-05-04T11:28:00Z;1686;20;Praha;1;-;Kristýna Kadeřábková;kristy.kad@seznam.cz
+90;NA;2022-05-04T11:04:59Z;2022-05-04T11:20:39Z;939;20;Praha;0;-;Tadeáš Turek;62274742@fsv.cuni.cz
+91;NA;2022-05-05T07:39:56Z;2022-05-05T08:00:47Z;1250;25;Jihočeský;2;564561845153;Antonín Hynek-Krämer;antonin.hynek@gmail.com
+92;NA;2022-05-05T08:56:28Z;2022-05-05T10:41:23Z;6294;22;Jihomoravský;1;512926;Denisa Volková;denisavolkova1@seznam.cz
+93;NA;2022-05-05T15:20:28Z;2022-05-05T15:29:48Z;559;22;Jihočeský;1;122121212;Nikola Váchová;nikivach@seznam.cz
+94;NA;2022-05-05T18:56:56Z;2022-05-05T19:11:49Z;892;22;Pardubický;2;1;Dominika Sokolová;domiesokolova@gmail.com
+95;NA;2022-05-05T20:02:54Z;2022-05-05T20:36:03Z;1989;21;Jihomoravský kraj;0,5;526127;Vojtěch Tesař;526127@mail.muni.cz
+96;NA;2022-05-06T11:44:58Z;2022-05-06T11:56:21Z;682;29;královéhradecký;1;502626;Tomáš Marný;tom.marny@g-mail.com
+97;NA;2022-05-06T14:16:04Z;2022-05-06T14:26:33Z;629;22;Středočeský;1;kataseem@seznam.cz;Kateřina Šemberová;kataseem@seznam.cz
+98;NA;2022-05-06T15:38:26Z;2022-05-06T15:47:49Z;562;21;Královéhradecký;2;-;Marek Aubus;aubusm@seznam.cz
+99;NA;2022-05-07T21:40:49Z;2022-05-07T21:52:37Z;708;21;som zo Slovenska;2;526330;Vanessa;vanessazávodná@gmail.sk
+100;NA;2022-05-08T20:07:55Z;2022-05-08T20:19:53Z;717;23;Středočeský;0;0;Michal Koliandr;54617578@fsv.cuni.cz

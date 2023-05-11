@@ -1,0 +1,60 @@
+\documentclass[output=paper,colorlinks,citecolor=brown]{langscibook}
+\bibliography{localbibliography}
+
+%\author{Mojmír Dočekal\orcid{0000-0002-9993-4756}\affiliation{Masaryk university} }
+\author{John Doe}
+
+% replace the above with you and your coauthors
+% rules for affiliation: If there's an official English version, use that (find out on the official website of the university); if not, use the original
+% orcid doesn't appear printed; it's metainformation used for later indexing
+
+%%% uncomment the following line if you are a single author or all authors have the same affiliation
+\SetupAffiliations{mark style=none}
+
+%% in case the running head with authors exceeds one line (which is the case in this example document), use one of the following methods to turn it into a single line; otherwise comment the line below out with % and ignore it
+%\lehead{Šimík, Gehrke, Lenertová, Meyer, Szucsich \& Zaleska}
+%\lehead{Mojmír Dočekal}
+\lehead{John Doe}
+
+
+\title{Equatives and two theories of negative concord}
+% replace the above with your paper title
+%%% provide a shorter version of your title in case it doesn't fit a single line in the running head
+% in this form: \title[short title]{full title}
+\abstract{This article reports the results of an experiment targetting the acceptability of Czech neg-words and strong NPIs under Neg-Raising predicates and in the complement clauses of equatives. The theoretical consequences of the results are discussed and range from the support of non-standard negative concord theories to the support of non-standard degree semantics for the equative constructions. 
+
+\keywords{experimental semantics, Czech, neg-words, strong NPIs, equatives}
+}
+
+\input{localpackages.tex}
+\input{localcommands.tex}
+
+\togglepaper[42]
+% the chapter number will be provided by volume editors; for now keep this way
+
+\begin{document}
+\maketitle
+
+\input{two_theories_art.tex}
+
+% Just comment out the input below when you're ready to go.
+% \input{example-osl.tex}
+
+\section*{Abbreviations}
+
+\begin{tabularx}{.5\textwidth}{@{}lQ}
+\textsc{neg}&negation\\
+\textsc{nr}&Neg-Raising\\
+\end{tabularx}%
+\begin{tabularx}{.5\textwidth}{lQ@{}}
+\textsc{eq}&equative\\
+\textsc{comp}&comparative\\
+%&\\ % this dummy row achieves correct vertical alignment of both tables
+\end{tabularx}
+
+\section*{Acknowledgments}\label{sec:acknowl}
+I would like to thank many people for long and extensive collaborative work on the topics discussed in this article, namely Jakub Dotlačil, Iveta Šafratová, Tereza Slunská, Martin Juřen and many other linguists in Brno and around.  
+
+\printbibliography[heading=subbibliography,notkeyword=this] 
+
+\end{document}

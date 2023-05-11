@@ -1,0 +1,245 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usetheme[]{metropolis}
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usecolortheme{owl}
+\setsansfont{Ubuntu}
+\setmonofont{Ubuntu Mono}
+\metroset{numbering=counter}
+\usepackage[round]{natbib}
+\usepackage{linguex}
+\usepackage{qtree}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{ colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan, }
+\urlstyle{same}
+\newcommand{\cond}[1]{\textsc{#1}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Equatives and two theories of negative concord},
+  pdfauthor={Mojmír Dočekal},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Equatives and two theories of negative concord}
+\subtitle{experimental evidence from Czech}
+\author{Mojmír Dočekal}
+\date{Berlin, 5-10-2022}
+\institute{FDSL 15}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\begin{frame}{Intro}
+\protect\hypertarget{intro}{}
+\begin{itemize}
+\tightlist
+\item
+  continuation of the previous work: the distinction between strong NPIs
+  and neg-words
+\item
+  equatives: one of the contexts where strong NPIs and neg-words
+  distribution diverge
+\item
+  Czech equatives don't license NPIs (like German and many other
+  non-English NPIs: see \citealt{krifka1992some}) but license neg-words
+\item
+  surprising against English and standard theories of equatives
+  \cite{stechow1984comparing,beck201913} a.o.
+\end{itemize}
+
+\ex. Paris is as quiet as ever.
+
+\exg. Petr je tak vysoký jako \{\#ani jeden/žádný\} jiný student.\\
+Petr is so tall how strong NPI/neg-word other student.\\
+\hspace*{0.333em}
+
+~
+\end{frame}
+
+\begin{frame}
+\begin{block}{Experiment: part 1 (example item)}
+\protect\hypertarget{experiment-part-1-example-item}{}
+\ex. \ag. V království nezůstal \{žádný/ani~jeden\} zloděj.\\
+in kingdom neg-ramained neg-word/NPI thief\\
+`No thief remained in the kingdom.' \bg. Král nechce, aby v království
+zůstal \{žádný/ani jeden\} zloděj.\\
+King neg-wants that in kingdom remained neg-word/NPI thief\\
+`The king doesn't want any thief to remain in the kingdom.' \cg. Zloděj
+ze souostroví Qwghlm je tak šikovný jako \{žádný/ani jeden\} zloděj.\\
+thief from archipelago Qwghlm is so clever how neg-word/NPI thief\\
+`The thief from the Qwghlm archipelago is as clever as no other thief.'
+
+\begin{itemize}
+\tightlist
+\item
+  first part: 3x2 design
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\ex. Kontext: Šikovný trpaslík ze vsi najde v těchhle dolech za den 1, 2
+někdy i 3 diamanty.\\
+Context: A clever dwarf from the village will find 1, 2 or 3 diamonds in
+these mines per day.\\
+\ag. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádný/ani
+1\} diamant.\\
+one clever dwarf from village neg-found yesterday in mines neg-word/NPI
+1 diamond\\
+`One clever dwarf from the village didn't find even one diamond in the
+mines yesterday.' \bg. Jeden šikovný trpaslík ze vsi nenašel včera v
+dolech \{žádné/ani\} 3 diamanty.\\
+one clever dwarf from village neg-found yesterday in mines neg-word/NPI
+3 diamonds\\
+`One clever dwarf from the village didn't find even three diamonds in
+the mines yesterday.'
+
+~
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics{"acc-results-complex.png"}
+\caption{Bayesian model}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+Theoretical consequences:
+
+\begin{enumerate}
+\item
+  for neg-words theories: empirical evidence for the semantic type of
+  negative-concord approaches \cite{ovalle2004double,kuhn2022dynamics}
+  against the standard syntactic approach \cite{zeijlstra2004sentential}
+\item
+  for the degree theories of equatives: empirical arguments for the
+  non-standard approach to Slavic (and German) equatives --
+  \cite{penka2016degree} against the standard theories
+  \cite{stechow1984comparing,beck201913}
+\item
+  no evidence of demographic related variation but the variation is
+  still real (partially following:
+  \citealt{burnett2015variable,burnett2018structural})
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge Thanks!
+\end{center}
+
+\normalsize
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\renewcommand\refname{References}
+\begin{frame}[allowframebreaks]{References}
+  \bibliographytrue
+  \bibliography{bibliography.bib}
+\end{frame}
+
+\end{document}

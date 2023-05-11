@@ -1,0 +1,983 @@
+---
+title: Equatives and two theories of negative concord
+subtitle: experimental evidence from Czech
+author: Mojmír Dočekal
+date: Berlin, 5-10-2022
+institute: FDSL 15
+output:
+  beamer_presentation:
+    toc: yes
+    keep_tex: yes
+    theme: metropolis
+    latex_engine: lualatex
+    citation_package: natbib
+header-includes: 
+  - \setsansfont{Ubuntu}
+  - \setmonofont{Ubuntu Mono}
+  - \metroset{numbering=counter}
+  - \usepackage[round]{natbib}
+  - \usepackage{linguex}
+  - \usepackage{qtree}
+  - \usepackage{stmaryrd}
+  - \usepackage{hyperref}
+  - \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+  - \urlstyle{same}
+  - \newcommand{\cond}[1]{\textsc{#1}}
+bibliography: bibliography.bib
+---
+
+```{r,setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+# Intro
+
+- talk about expressions depending on the polarity
+- evidence: Czech (strict negative concord language)
+- data gathered from many experiments: long and extensive collaborative work with Jakub Dotlačil, Iveta Šafratová, Tereza Slunská, Martin Juřen and many other linguists in Brno and around
+- add to experimental research on NPIs: \cite{Chemla-Homer-Rothschild-NPI,gajewski2016another,alexandropoulou2020there} a.o.
+- more specifically: \cite{djarv2018cognitive,schwarz2020italian} and their experimental work on cross-linguistic variation in NPI licensing (following \citealt{chierchia2019factivity})
+
+---
+
+- empirically, the talk is about Czech strong NPIs and neg-words
+- *ani jeden* \`even one' vs. \textit{žádný} `no' (neg-word)
+- in the majority of contexts: interchangeable -- \Next
+
+\exg. Petr nepotkal \{ani jednoho/žádného\} studenta.  
+  Petr neg-met strong NPI/neg-word student  
+  `Petr didn't meet even one/any student.'
+
+- strong NPIs (theoretical framework: \citealt{gajewski2011licensing}) but with the unlikelihood presupposition (English *ANY*: \citealt{krifka1995semantics}, Hindi *ek bhii*: \citealt{lahiri1998focus}, English *even one*: \citealt{crnivc2014non})
+
+--- 
+
+- *ani*: the unlikelihood presupposition of English *even* but limited to strong NPI contexts
+- strongest (unlikely) prejacent: entailing all the alternatives
+
+\exg. FC Barcelona nedala \{ani jeden/#ani deset\} gól/ů.  
+  FC Barcelona neg-gave even one/#even ten goal(s)  
+  `FC Barcelona didn't score even one/#ten goal(s).'
+
+\ 
+
+---
+
+Czech neg-words
+
+- similar to Italian neg-words (*niente*, e.g.: \citealt{ladusaw1992expressing}) but as in all Slavic languages (strict negative-concord: \citealt{zeijlstra2004sentential}) in majority of contexts require verbal negation (in the same clause)
+
+\ex. \ag. Petr nedal žádný gól.  
+  Petr neg-scored neg-word goal  
+  \`Petr didn't score any goal.\'
+\bg. Nikdo \{nepřišel/#přišel\}.  
+ neg-word neg-came/came  
+ `Nobody came.'
+\cg. *Petr neřekl, že nikdo přišel.  
+ Petr neg-said that neg-word came  
+ \ 
+
+\ 
+
+---
+
+- the most influential analysis of neg-words: syntactic approach (\citealt{zeijlstra2004sentential} a.o.)
+- in strict negative concord languages, all neg-words (and the verbal) negation carry [uNeg] and are checked against [iNeg] (covert) operator with the semantics of $\neg$
+- part of the talk: experimental support for an alternative, semantic theory of neg-words (\citealt{ovalle2004double,kuhn2022dynamics})
+
+---
+
+- equatives: one of the contexts where strong NPIs and neg-words distribution diverge
+- Czech equatives don't license strong & weak NPIs (like German and many other non-English NPIs: see \citealt{krifka1992some}) but license neg-words
+- surprising against English and standard theories of equatives \cite{stechow1984comparing,beck201913} a.o.
+- one of the environments where the contrast is most robust but still there's a variation: some speakers treat *ani* as neg-word
+
+\exg. Petr je tak vysoký jako \{#ani jeden/žádný\} jiný student.  
+  Petr is so tall how strong NPI/neg-word other student.  
+  \ 
+
+\ex. Paris is as quiet as ever.
+
+\ 
+
+---
+
+### Negative quantifiers, NPIs, neg-words and variation
+
+- connected to the recent work on English NPIs vs. negative quantifiers and its variation
+- \citealt{tottie1991negation,burnett2018structural}: NPIs replace negative quantifiers in some (lower, e.g.) syntactic domains
+  - historical and social factors are real but weaker than grammatical 
+- similarly: \cite{burnett2015variable}: the variable negative concord in Québec French
+- experimental work: search for factors (grammatical and social as well)
+- plus explaining the puzzling equative pattern
+
+---
+
+### The empirical and theoretical questions
+
+
+\ex. Question 1: How to explain the unpredicted acceptability of Czech neg-words in equatives (and NPIs unavailability)?  
+\a. Especially considering the monotonic properties of equatives.
+
+- experimental data give us precise enough clues
+
+\ex.  Question2: \a. How can we explain microvariation by grammatical (semantic) factors?
+\b. Is part of the variation caused by social factors?
+\z.
+
+\ 
+
+---
+
+# Experiment
+
+- the experiment was run online on the L-Rex platform
+- mostly students of MUNI (Brno) and UK (Prague)
+- 105 participants, 82 passed the fillers and were included in the stats
+- each questionnaire: 64 items, 48 randomized lists
+- 3 demographic-related questions:
+  - age
+  - region
+  - daily reading time (books, etc.)
+
+---
+
+Two parts of the experiment:
+
+1. acceptability judgment task (no context)
+
+2. acceptability judgment task against probability/scalarity manipulated context
+
+- both parts: participants judged the acceptability of sentences on a 1 to 7-point Likert scale (1 the worst, 7 the best)
+- both parts: all conditions were crossed with two conditions:
+
+  - neg-words
+  - strong NPIs
+
+---
+
+### Experiment: part 1 (example item)
+
+\ex. \ag. V království nezůstal \{žádný/ani\ jeden\} zloděj.  
+ in kingdom neg-ramained neg-word/NPI thief   
+ \`No thief remained in the kingdom.'
+\bg. Král nechce, aby v království zůstal \{žádný/ani jeden\} zloděj.  
+ King neg-wants that in kingdom remained neg-word/NPI thief  
+ \`The king doesn't want any thief to remain in the kingdom.'
+\cg. Zloděj ze souostroví Qwghlm je tak šikovný jako \{žádný/ani jeden\} zloděj.  
+ thief from archipelago Qwghlm is so clever how neg-word/NPI thief  
+ \`The thief from the Qwghlm archipelago is as clever as no other thief.'
+
+- first part: 3x2 design
+
+---
+
+
+### Experiment: part 2
+
+- in this part, the two classes of negative dependent expressions were tested against a manipulated context
+- the context was created to fix a scale (probability, noteworthiness, ...)
+- both neg-words and strong NPIs were tested with tops and bottoms of the contextual scale
+  - 2x2 design
+  - neg-words/strong NPIs vs. top-of-the scale/bottom of the scale
+
+---
+
+\ex. Kontext: Šikovný trpaslík ze vsi najde v těchhle dolech za den 1, 2 někdy i 3 diamanty.  
+ Context: A clever dwarf from the village will find 1, 2 or 3 diamonds in these mines per day.   
+\ag. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádný/ani 1\} diamant.  
+ one clever dwarf from village neg-found yesterday in mines neg-word/NPI 1 diamond    
+ \`One clever dwarf from the village didn't find even one diamond in the mines yesterday.'
+\bg. Jeden šikovný trpaslík ze vsi nenašel včera v dolech \{žádné/ani} 3 diamanty.  
+ one clever dwarf from village neg-found yesterday in mines neg-word/NPI 3 diamonds   
+ \`One clever dwarf from the village didn't find even three diamonds in the mines yesterday.'
+
+
+\ 
+
+---
+
+## Results
+
+![Graph of acceptance (+error bars)]("error_bar.png")
+
+
+---
+
+### Hierarchical models 
+
+(bottom of the scale probability, top in Appendix)
+
+- mixed hierachical models with random effects for subjects and items (full structure: slope and intercept) 
+- Cumulative Link Mixed Model: R package \texttt{ordinal} (@r-ordinal)
+- multiple hierarchical regression with interaction (3x2 and 2x2)
+
+---
+
+### Demographic factors
+
+- negative concord can vary depending on social factors (Montréal French: @burnett2015variable but also: @burnett2018structural)
+  - age, education level
+
+- in the experiment, the subjects were asked for:
+  - region
+  - age
+  - daily reading time (books, newspapers, ...)
+
+Summary of demographic factors:
+
+- no interaction between neg-words or strong NPIs with either of the 3 factors
+- no main effect
+- the variation effects discussed later are not social
+(the same results: after z-transformation of age)
+
+---
+
+1. main effects: all conditions were degraded against the baseline
+
+2. **interaction effects**: 
+  - the strong positive effect of neg-words by equatives
+  - non-significant effect of neg-words by NegRaising (but see next exps and variation)
+  - significantly strong negative effect of neg-words by probability
+
+(the same results: Bayesian model -- Appendix)
+
+---
+
+\footnotesize
+
+```{r eval=FALSE}
+Cumulative Link Mixed Model fitted with the Laplace approximation
+formula: as.factor(rating1) ~ condition * classNExpr + (1 + condition |  
+  participant) + (1 + condition | item)
+  data:    items_with_probability_bott
+
+Coefficients:
+                           Estimate Std. Error z value Pr(>|z|)    
+conditionEq               -5.31772    0.46257 -11.496  < 2e-16 ***
+conditionNR               -5.62684    0.44530 -12.636  < 2e-16 ***
+conditionProb             -5.62179    0.51548 -10.906  < 2e-16 ***
+classNExprZ               -0.88195    0.26981  -3.269  0.00108 ** 
+conditionEq:classNExprZ    3.16921    0.32897   9.634  < 2e-16 ***
+conditionNR:classNExprZ    0.06224    0.31883   0.195  0.84523    
+conditionProb:classNExprZ -0.71610    0.33130  -2.161  0.03066 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1```
+```
+
+---
+
+## Summary
+
+1. neg-words are (unlike strong NPIs) accepted in the standard of equatives
+  - unexplainable in the syntactic theory of neg-words
+  - NPI unacceptability is surprising but probably results from cross-linguistic differences in equatives
+
+2. NegRaising predicates are better licensors for strong NPIs
+  (the effect was not significant in this experiment but see exp. evidence below)
+
+3. in probability/scale manipulated contexts, strong NPIs are preferred
+  - again problematic for the syntactic theory of neg-words
+
+Intriguing correlations between conditions (per speaker).
+
+
+---
+
+## Correlations
+
+- all speakers agreed on their high acceptance of baseline
+- but some rated *ani* high in equatives, those who accept it in NegRaising: strong NPI
+- similar observations in previous experiments: baselines universally accepted but divergent acceptability in non-baseline conditions
+- speakers who accept *ani* in equatives treat it as neg-word
+- technically:
+  - z-transformation of (by subject) acceptance of conditions
+  - checking the correlation of such z-transformed ratings
+  - Pearson's product-moment correlation: t = $-5.93$, p-value $< 0.001$
+- this is a continuation of @docekaldotlacilsubber: correlation between probability and NegRasing (for *ani* but not for neg-words): see experiments below
+- but crucially, no correlations against the baseline: slide after the next slide
+
+
+---
+
+![Correlations between NegRaising and Equatives]("correlations_ani.png")
+
+---
+
+
+
+![Correlations between Equatives and Baseline]("equatives_baseline_corr.png")
+
+---
+
+
+### Distribution and correlations summary
+
+|             | Bas | Prob (unlik.) | Eq | NR | Fragm. | Without |
+|-------------|-----|------|----|----|-------|---------|
+| strong NPIs | $\checkmark$   | $\checkmark$    | *  | $\checkmark$* | *     | $\checkmark$       |
+| neg-words   | $\checkmark$   | *    | $\checkmark$  | *  | $\checkmark$*    | $\checkmark$       |
+
+
+|             | Eq ... NR  | Prob. ... NR | Fragm. ... NR | Eq ... Bas |
+|-------------|------------|--------------|---------------|------------|
+| strong NPIs | neg. corr. | neg. corr.   | neg. corr.    | *          |
+| neg-words   | *          | *            | *             | *          |
+
+---
+
+# Theoretical consequences
+
+## Assumptions: licensing of (strong) NPIs
+
+- general framework: mixture of *even*-theory of NPIs licensing (\citealt{krifka1995semantics,lahiri1998focus,crnivc2014non} a.o.) and Gajewski's formalization of strong NPIs \cite{gajewski2011licensing}
+- licensing NPIs (after @gajewski2011licensing): strong NPIs are licensed in downward-entailing (DE) environments 
+- DE both in Truth-Conditions (TC) but also in the non-at-issue meaning
+
+\ex. An NPI is licensed in the environment $\gamma$  
+ $[_\alpha exh [_\beta \ldots [_\gamma$ NPI $] \ldots ]]$:
+\a. the environment $\gamma$ is DE in $\beta$ \hfill weak NPIs
+\b. the environment $\gamma$ is DE in $\alpha$ \hfill strong NPIs
+
+\ 
+
+---
+
+- the exhaustifier for strong NPIs as English *even one*: covert $even$
+- the standard analysis for scalar strong NPIs @crnivc2014against and for scalar reading of focus particles @panizza2020minimal
+- overt but also covert *even* has scalar \Next[a] and additive \Next[b] presupposition:
+- the presuppositions after @panizza2020minimal (the additive sometimes suspended):
+
+\ex. \a. Even Pope$_F$ danced. 
+\b. Even one$_F$ cat will make Pope happy.
+
+
+\ex. \`Even $\phi$' presupposes:
+\a. that $\phi$ is relatively unlikely to be true among Alt($\phi$); and 
+\b. that there is $\psi \in$  Alt($\phi$) that is not entailed by $\phi$ and is true.
+
+\footnotesize(for monotonic scales, likelihood translates into entailment (after \citealt{crnic2011getting}))\normalsize
+
+---
+
+### Baseline from the experiment
+
+- *ani* strong NPIs associate with covert *even* (scope: propositional level)
+- it reqires DE both in TC and non-at-issue
+- plus the scalar presupposition of covert *even* exhaustifier
+- the exhaustified focus alternatives: other cardinality predicates (after \citealt{lahiri1998focus,crnic2011getting} a.o.)
+- the entailment between numerals is reversed by negation: $\neg (\llbracket$ one cat $\rrbracket \ldots) \models \neg(\llbracket$two cats$\rrbracket \ldots)$
+
+\footnotesize
+
+\ex. Ani one thief neg-remained in the kingdom.  
+\a. \ [$_\alpha$ ($even$) [$_\beta$ \neg [$_\gamma$ ani one thief remained in the kingdom ]] ]
+\a. TC (in $\beta$) DE: $\checkmark$
+\b. non-at-issue (in $\alpha$) DE: $\checkmark$
+\c. scalar presupposition of (even): $\rightarrow$ $\neg$(two thieves remained), $\neg$(three thieves remained), \ldots: $\checkmark$
+\d. additive presupposition: $\neg$(two thieves remained) $\vee$ $\neg$(three thieves remained), \ldots: $\checkmark$
+\z. 
+
+\ 
+
+\normalsize
+
+---
+
+## Other conditions from the experiment
+
+#### Likelihood
+
+- the explanation is the same as for the baseline: the scope ($even$) > $\neg$ > ... one ...
+- the general preference of strong NPIs over neg-words follows from the semantic theory of neg-words -- bellow
+
+### Neg-Raising
+
+- in many previous experiments (three at least): Neg-Raising was better accepted with strong NPIs (but the effect was never strong)
+  - one possibility: the variation -- speakers who treat *ani* as a neg-word blur the line
+- standard theories of Neg-Raising: \cite{gajewski2007neg} or \cite{romoli2013scalar}
+  - the scope of negation (via the excluded middle inference) on the embedded predicate
+- at the embedded level: covert ($even$) > $\neg$ > [... one ...]
+- neg-words: the locality constraints -- see below
+
+
+---
+
+## Neg-words
+
+- semantic/pragmatic theory of neg-words and negative concord
+- @ovalle2004double and modern reformulation in @kuhn2022dynamics
+- TC: indefinite description
+- non-at-issue: empty reference 
+
+\ex. \a. $\llbracket$neg-word$\rrbracket$=$\lambda P.\exists x[SORT(x) \wedge P(x)]$ \hfill TC
+\b. $\llbracket$neg-word$\rrbracket$=$\neg \exists x[SORT(x) \wedge P(x)]$ \hfill non-at-issue
+\a. after @kuhn2022dynamics: $\wedge \mathbf{0_x}$ \ldots postsupposition (highest scope) 
+\z.
+
+\ 
+
+---
+
+### Locality, etc.
+
+- @kuhn2022dynamics: many improvements of @ovalle2004double
+- discourse referents (presupposed to be empty) are delimited by the previous context
+  - more specific concerning the presupposition of emptiness
+- neg-words are analyzed via split scope around licensor (prototypically negation)
+  - the split scope is achieved via quantifier raising
+  - the locality constraints on neg-word licensing $\approx$ QR in the particular language and construction
+
+
+---
+
+### Explaining the baseline
+
+\ex. neg-word thief neg-remained in the kingdom.
+\a. [$\neg[\exists x[\mathbf{thief}(x) \wedge \mathbf{remained}(x)]$  ]] $\wedge \mathbf{0_x}$ 
+
+- TC and the postsupposition are compatible
+- in positive sentences, the $\mathbf{0_x}$ postsupposition leads to ungrammaticality:
+
+\ex. neg-word thief remained in the kingdom.
+\a. [$\exists x[\mathbf{thief}(x) \wedge \mathbf{remained}(x)]$  ] $\wedge \mathbf{0_x}$ \hfill $\bot$
+
+- this also nicely explains the acceptability of neg-words with *bez* `without' (no morphological negation)
+
+---
+
+## Other conditions from the experiment
+
+### Probability
+
+- both in top and bottom contexts, strong NPIs were preferred
+- the contexts were (nearly always) set up with positive inference
+- the positive inference goes against $\mathbf{0_x}$ presupposition of neg-words
+  - it can also explain the surprisingly high acceptability of strong NPIs even in top scalar contexts
+  - another factor: different scales (numerical in last experiment, ad-hoc in previous) $\rightarrow$ future experimental work
+
+---
+
+### Neg-Raising
+
+- previous experimental work: mostly evidence for decreased acceptability of neg-words (against strong NPIs) in NR
+- Kuhn's QR approach: explains the neg-words decreased acceptability
+- in the last experiment: the contrast is blurred
+- one possibility: to remove subjects treating *ani* as a neg-word from the stats
+- unlike with equatives, the environment seems to be nearly as acceptable for neg-words as for strong NPIs
+
+---
+
+### Equatives
+
+
+- Slavic equatives are different from English equatives, and their morpho-syntax is very similar to correlatives
+  - Slavic equatives are built on the correlative syntax
+  - and following \cite{pauline1995quantificational}: correlatives are bad licensors of NPIs
+- another experiment in preparation: weak NPIs are penalized in Czech equatives (but acceptable in comparatives)
+  - Slavic equatives are probably not even DE (as was observed for German: \citealt{krifka1992some,penka2016degree})
+- neg-words are acceptable but verbal negation not (as in German: \citealt{penka2016degree})
+
+\exg. Petr je tak chytrý jak nikdo jiný/*Marie ne.  
+ Petr is so smart how neg-word else/Mary not  
+ \   
+
+\ 
+
+---
+
+### Equatives II
+
+- syntactic and semantic ingredients (pseudoCzech in \Next)
+- non-standard: $max \rightarrow max_{inf}$ (otherwise $max$ would lead to $\bot$): \cite{penka2016degree}
+
+\ex. This thief is so clever how neg-word other thief.  
+\a. [ so [so$_1$ no other thief $t_1$ clever ]]$_2$ [This thief is $t_2$ clever]  
+\b. $\llbracket so\rrbracket$  ... picks up the degree denoted by the standard clause  
+\b. $\llbracket$ how$_1$ neg-word other thief clever is $\rrbracket$  
+\a. nobody other than the thief is $d$-clever \hfill neg-word presupposition  
+\b. the thief is $d$-clever \hfill implicature of *other*  
+\z.
+
+\ex. \a. $\llbracket$ as $\rrbracket = \lambda S\lambda C.max(C) \geq max(S)$  
+\b. $S' \subseteq S: max(C) \geq max(S) \rightarrow max(C) \geq max(S')$ \hfill English DE \textit{as}
+
+\ 
+
+---
+
+### Equatives III
+
+Motivation of the ingredients:
+
+- $max_{inf}$: the equative in Czech has exactly the same building blocks (*tak* \`so' ... *jak* \`how') as correlative constructions
+- *other*: the anaphor similar to reciprocal anaphors
+  - it identifies the dref
+  - it is also used in the exceptive phrases from which the presupposition comes: *Nobody other than John neg-came* presupposes that John came (as the only exception)
+- neg-word presupposition ranges over the dref picked up by the reciprocal
+
+---
+
+## Summary 1
+
+- Czech neg-words and strong NPIs
+- existential TC core: $\lambda P.\exists x[NP(x) \wedge P(x)]$
+
+|             | TC     | non-at-issue meaning                          |
+|-------------|--------|-----------------------------------------------|
+| neg-words   | existential | $\mathbf{0_x}$                           |
+| strong NPIs | existential | scalar presupposition |
+|             |             | association with (even) |
+
+
+---
+
+## Summary 1
+
+- that explains (with some other more or less standard assumptions) the patterns of the experiment(s) plus:
+
+\ex. How to explain the unpredicted acceptability of neg-words in equatives (and NPIs unavailability)?
+
+\ex. The non-standard $max_{inf}$ accounts for the surprising neg-words acceptability.  
+\a. decisive evidence for the semantic theory of neg-words  
+\b. non-monotonic environment: NPIs are predicted to be out   
+
+- neg-words in equatives: no standard theory of equatives with interpreted $\neg$ ([uNeg]) in the standard
+
+---
+
+- the answer to Question 2:
+
+\ex. Question2:   \a. How can we explain microvariation by grammatical (semantic) factors?
+\b. Is part of the variation caused by social factors?
+\z.
+
+
+\ex. The speaker variation is explainable as shifting from the scalar to the emptiness of the DR presupposition (in case of *ani jeden* 'even one').
+\a. Social factors don't seem to play a role in this shift.
+
+- the experimental data support the semantic theory of neg-words: higher acceptability of strong NPIs in the probability manipulated contexts: unpredicted, many other environments (fragmentary answers preference for neg-words and also *without* type of P)
+
+---
+
+
+
+
+\begin{center}
+\Huge Thanks!
+\end{center}
+
+\normalsize
+
+---
+
+## Open questions
+
+- proper investigation of locality constraints
+  - NegRaising: the concurrence sometimes vanishes (Maximize Presupposition of \citealt{heim1991articles}?)
+- both scopes of covert *even* in probability contexts (exp1) or just one (exp2 & exp3), or the difference comes from different scales?
+- cross-linguistic variation in the neg-words locality: at least in some Romance languages, neg-words are licensed in *before*-clauses and under *doubt*-type of predicates
+  - some suggestions in \cite{kuhn2022dynamics}
+
+---
+
+# Appendix
+
+## Histograms
+
+
+![Histogram: probabilities Bottom of the scale]("histogram_faceted_prob_bott.png")
+
+---
+
+![Histogram: probabilities Top of the scale]("histogram_faceted_prob_top.png")
+
+<!-- --- -->
+
+
+<!-- ### Items -->
+
+<!-- - the predicates in baseline and NegRaising conditions were the same -->
+<!-- - with equatives, this wasn't possible to realize, but the sentences were constructed as close to the meaning of baseline and NegRaising as possible -->
+<!-- - and the standard of equatives was always the same neg-word NP/strong NPI as in the baseline and NegRaising conditions -->
+
+<!-- --- -->
+
+---
+
+### Demographic factors II
+
+1. region:
+
+- all regions of the Czech Republic aggregated to Bohemia vs. Moravia:
+- 67% of subjects were from Bohemia, 33% from Moravia
+- no significant main or interaction effect was found
+
+2. age:
+
+- range: 19 to 71 years, mean: 25.6, median: 23
+- only significant interaction effect: younger people (under 27) rated probability condition slightly better (t-value: $2.02$, p $< 0.05$)
+
+---
+
+### Demographic factors III
+
+3. reading time
+
+- a proxy for education bias
+- reading time of books and other media: 0 to 10 hours
+- mean: 1.43, median: 1 hour
+- only one significant interaction: subjects with reading time > 1 hour rated NR-condition better (t-value $2.05$, p $< 0.05$)
+
+---
+
+## More models
+
+- Bayesian model for experiment 1: next slide
+- confidence intervals agree with p-values from the cumulative mixed model
+
+---
+
+![Bayesian model]("acc-results-complex.png")
+
+---
+
+
+- mixed linear model for the top of the scale (probability)
+
+\footnotesize
+
+```{r eval=FALSE}
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: as.factor(rating1) ~ condition * classNExpr + (1 + condition |  
+    participant) + (1 + condition | item)
+data:    items_with_probability_top
+
+Coefficients:
+                          Estimate Std. Error z value Pr(>|z|)    
+conditionEq               -5.41517    0.46741 -11.585  < 2e-16 ***
+conditionNR               -5.72051    0.44478 -12.861  < 2e-16 ***
+conditionProb             -4.59856    0.56993  -8.069  7.1e-16 ***
+classNExprZ               -0.88066    0.27140  -3.245 0.001175 ** 
+conditionEq:classNExprZ    3.21934    0.33077   9.733  < 2e-16 ***
+conditionNR:classNExprZ    0.05194    0.32027   0.162 0.871180    
+conditionProb:classNExprZ -1.16830    0.32806  -3.561 0.000369 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+```
+
+<!-- --- -->
+
+<!-- - the last experiment: surprisingly high acceptability of strong NPIs in the top of the scale contexts -->
+<!-- - in previous experiments, we tested top of the scale, and neg-words were better accepted -->
+<!-- - one possible explanation: the nature of the scale:  -->
+<!--   - the last experiment: just numerical scales, the two before social hierarchies, not numerical scales -->
+<!-- - future experiment: probabilities and different scales -->
+
+
+
+<!-- --- -->
+
+<!-- ## Strong negative effect of neg-words -->
+
+<!-- - not as strong as the conditions -->
+<!-- - unclear reason -->
+<!-- - but it is not frequency: -->
+<!-- - Czech National Corpus \cite{CNK:SYN2015} search for *ani* plus numeral, noun, pronoun, preposition  -->
+<!-- - the same for *žádný* and the same categories: \Next -->
+<!-- - their frequency is nearly the same -->
+
+<!-- \ex. \a. [ani \ldots]: 73 917 hits  -->
+<!-- \b. [žádný \ldots]: 66 912 -->
+
+<!-- \  -->
+
+<!-- --- -->
+
+<!-- - possible syntactic factor: first query into \cite{CNK:SYN2015} -->
+<!-- - asymmetry between *ani* and *žádný* in terms of their scope preferences -->
+<!-- - *žádný* preferentially scopes in VP -->
+<!-- - @burnett2018structural: the distinction between negative indefinites and NPIs (hard constraint in Scandinavian, soft constraint in English) -->
+<!--   - handle for: neg-words do have syntactic component, NPIs not -->
+<!-- - 3 out of 4 conditions in the experiment: strong NPI/neg-word in subject   -->
+
+<!-- \ex. \a. žádný 'no': -->
+<!-- \a. 11 580 in Subj, 19 445 in Obj -->
+<!-- \z. -->
+<!-- \b. ani 'even' -->
+<!-- \a. 8 661 in Subj, 8 562 in Obj -->
+<!-- \z. -->
+
+<!-- \  -->
+
+<!-- --- -->
+
+<!-- ## The correlation table (subjects) -->
+
+<!-- \tiny -->
+
+<!-- ```{r eval=FALSE} -->
+
+<!-- ## # A tibble: 17 × 6 -->
+<!-- ## # Groups:   participant, condition [17] -->
+<!-- ##    participant condition classNExpr   min   max  mean -->
+<!-- ##    <fct>       <chr>     <fct>      <dbl> <dbl> <dbl> -->
+<!-- ##  1 8           Eq        A              5     7  5.67 -->
+<!-- ##  2 12          Eq        A              3     7  5.33 -->
+<!-- ##  3 29          Eq        A              5     6  5.33 -->
+<!-- ##  4 31          Eq        A              6     7  6.33 -->
+<!-- ##  5 35          Eq        A              2     7  5.33 -->
+<!-- ##  6 38          Eq        A              5     6  5.33 -->
+<!-- ##  7 53          Eq        A              5     6  5.67 -->
+<!-- ##  8 65          Eq        A              7     7  7    -->
+<!-- ##  9 78          Eq        A              7     7  7    -->
+<!-- ## 10 81          Eq        A              4     6  5    -->
+
+<!-- ## # A tibble: 14 × 6 -->
+<!-- ## # Groups:   participant, condition [14] -->
+<!-- ##    participant condition classNExpr   min   max  mean -->
+<!-- ##    <fct>       <chr>     <fct>      <dbl> <dbl> <dbl> -->
+<!-- ##  1 21          NR        A              7     7  7    -->
+<!-- ##  2 26          NR        A              3     7  5.67 -->
+<!-- ##  3 34          NR        A              6     6  6    -->
+<!-- ##  4 37          NR        A              3     7  5    -->
+<!-- ##  5 40          NR        A              4     6  5    -->
+<!-- ##  6 47          NR        A              7     7  7    -->
+<!-- ##  7 53          NR        A              6     7  6.33 -->
+<!-- ##  8 60          NR        A              4     6  5    -->
+<!-- ##  9 74          NR        A              6     7  6.33 -->
+<!-- ## 10 88          NR        A              5     7  6    -->
+
+
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- ### Historical note (Czech) -->
+
+<!-- - diachronic linguists (\citealt{Bauer:1986,Kopecny:1952}): at least some neg-words are newer than strong NPIs: -->
+<!-- - neg-words (because appearing in negative clauses frequently) acquired the modern *no* meaning -->
+<!-- - strong NPIs are older -->
+
+<!-- --- -->
+
+
+<!-- ## Old Czech data -->
+
+<!-- - strong NPIs are older than neg-words: *ani jeden hrad neg-V* from 14$^{\textrm{th}}$ century -->
+
+<!-- \exg. Dám tobě zemi žádnú.   -->
+<!--  give.\textsc{1sg} to-you land wanted   -->
+<!--  `I will give you the wanted land.' \hfill old Czech -->
+
+<!-- \exg. Nedám ti žádnou zemi.   -->
+<!--  give.\textsc{1sg} to-you no land   -->
+<!--  `I will give you no land.' \hfill modern Czech -->
+
+<!-- \  -->
+
+<!-- --- -->
+<!-- ## Experiment 2 -->
+
+<!-- - the previous results are no outliers -->
+<!-- - similar correlations were obtained in two other experiments -->
+<!-- - Experiment 2 -->
+
+<!--   - 40 Czech native speakers (students of MUNI) -->
+<!--   - again, mostly acceptability judgment task (Likert scale 1..5) -->
+<!--   - but also truth value judgment task (likelihood condition) -->
+
+<!-- --- -->
+
+<!-- ### Experiment 2 example item -->
+
+<!-- \ex. \cond{BASELINE} -->
+<!-- \ag. A: Koho vyhodil professor Palný včera ze zkoušky?   -->
+<!--  A: whom failed professor Palny yesterday from exam   -->
+<!--  \`Who was failed by professor Palny during yesterday's exam?' -->
+<!-- \bg. B: Profesor ne-vyhodil (POLARITY-ITEM) studenta.   -->
+<!--  B: professor NEG-failed POLARITY-ITEM student   -->
+<!--  `Anyone/even one student wasn't failed by the professor.' -->
+
+<!-- \  -->
+
+<!-- --- -->
+
+<!-- \ex. \cond{ELLIPSIS} -->
+<!-- \ag. A: Koho vyhodil professor Palný včera ze zkoušky?   -->
+<!--  A: whom failed professor Palny yesterday from exam   -->
+<!--  \`Who was failed by professor Palny during yesterday's exam?' -->
+<!-- \bg. B: (POLARITY-ITEM) studenta.   -->
+<!--  B: POLARITY-ITEM student   -->
+<!--  `Not any /Not even one student.' -->
+
+<!-- \  -->
+
+<!-- --- -->
+
+<!-- \ex. \cond{NR} -->
+<!-- \ag. A: Co je nového na katedrových zkouškách?   -->
+<!--  A: what is new at department exams   -->
+<!--  \`What happened new during the department exams?' -->
+<!-- \bg. Profesor Palný nechce, abychom vyhodili (POLARITY-ITEM) studenta   -->
+<!--  professor Palny neg-wants COMP fail POLARITY-ITEM student   -->
+<!--  `Professor Palny doesn't want any/even one student to fail.’ -->
+
+<!-- \  -->
+
+<!-- --- -->
+
+<!-- \ex. \cond{LIKELIHOOD} -->
+<!-- \a. Yesterday, Professor Novák ran exams of a fairly easy lecture, which is attended by bachelors, masters and doctoral students. Doctoral students always pass the exam, masters usually do, bachelors rather don't.’ -->
+<!-- \bg. Včerejší zkoušku u prof. Nováka nesložili (POLARITY-ITEM) bakaláři.   -->
+<!--  yesterday exam by professor Novak neg-passed POLARITY-ITEM bachelors   -->
+<!--  \`Any/even bachelors didn't pass professor Novak's exam yesterday.' -->
+
+<!-- - notice: the likelihood of context is reversed -- *ani* is expected to fare worse -->
+
+<!-- --- -->
+
+<!-- - the experiment was a 4x2 design -->
+<!-- - the descriptive summary follows -->
+<!-- - the main effects are all significantly negative against the baseline -->
+
+<!-- 1. in \cond{LIKELIHOOD} strong positive interaction effect by *žádný*: t-value = $8.32$ -->
+
+<!-- 2. no significant interaction effect of \cond{ELLIPSIS} by the expression: the context seems to meliorate the difference between strong NPIs and neg-words -->
+
+<!-- 3. the interaction between \cond{NR} and the expression is nearly significant -->
+
+<!-- --- -->
+
+<!-- ![Graph of acceptance (+error bars) Experiment 2]("error_bar_exp_2.png") -->
+
+<!-- --- -->
+
+<!-- ### Correlations in Experiment 2 -->
+
+<!-- - again, the correlation between the type of expression and its acceptability in tested environments was searched -->
+
+<!-- 1. strong and highly significant negative correlation between \cond{LIKELIHOOD} and \cond{NR}: t-value = $−3.2$ p=$.003$ -->
+<!-- - see the figure on the next slide; again z-transformation -->
+
+<!-- 2. significant correlation between \cond{ELLIPSIS} and NR-responses with *ani*: t-value -->
+<!-- = $−2.1$, p = $.04$ -->
+
+<!-- --- -->
+
+<!-- ![Correlation between LIKELIHOOD and NR (ani) Experiment 2]("exp2_correlations_ani.png") -->
+
+<!-- --- -->
+
+<!-- As for the correlations between *žádný* and \cond{ELLIPSIS}/\cond{NR} or \cond{LIKELIHOOD}/\cond{NR} -->
+
+<!-- - the expectation is to find no correlation -->
+<!-- - and indeed: all models: p > $.1$ -->
+<!--   - \cond{LIKELIHOOD} and \cond{NR} with respect to *žádný*: negative but not significant (t = $–1.6$, p = $0.11$) unlike for $ani$ -->
+<!--   - see the figure on the next slide -->
+
+<!-- --- -->
+
+<!-- ![Correlation between LIKELIHOOD and NR (žádný) Experiment 2]("exp2_correlation_zadny.png") -->
+
+<!-- --- -->
+
+<!-- ## Experiment 3 -->
+
+<!-- - very similar design as experiment 2 (previous version) -->
+<!-- - five conditions against crossed with the polarity-item: 5x2: -->
+<!-- - 25 items, 25 fillers -->
+
+<!-- 1. \cond{NR} -->
+
+<!-- 2. \cond{ELLIPSIS} -->
+
+<!-- 3. \cond{WITHOUT} -->
+
+<!-- 4. \cond{LIKELIHOOD} -->
+
+<!-- 5. \cond{IDIOM} -->
+
+<!-- --- -->
+
+<!-- - 55 participants, one excluded for a bad score in fillers -->
+<!-- - mostly students of MUNI in Brno -->
+<!-- - examples of \cond{WITHOUT} and \cond{LIKELIHOOD}: -->
+<!-- - the error bar graph in Figure 10 -->
+
+<!-- --- -->
+
+<!-- \ex. \cond{WITHOUT} -->
+<!-- \ag. Prodal mu dvě šachové sady bez (POLARITY-ITEM) krále.   -->
+<!--  sold him two chess sets without POLARITY-ITEM king   -->
+<!--  \`He sold him two chess sets without any/even one king' -->
+
+<!-- - notice: Czech *bez* doesn't bear any morphological negation  -->
+
+<!-- --- -->
+
+<!-- \ex. \cond{LIKELIHOOD} -->
+<!-- \ag. Ten kněz byl cílevědomý, ale neschopný, takže se nestal (POLARITY-ITEM) kardinálem.   -->
+<!--  The priest was purposeful but incompetent therefore SE NEG-became POLARITY-ITEM cardinal   -->
+<!--  \`The priest was purposeful but incompetent; therefore, he didn't become any/even cardinal.' -->
+
+<!-- - notice: as in experiment 2, the context likelihood goes against the *even* presupposition of *ani* -->
+
+<!-- --- -->
+
+<!-- ![Graph of acceptance (+error bars) Experiment 3]("error_bar_exp3.png") -->
+
+<!-- <!--\label{exp3_mean-sum} -->
+<!-- --> -->
+
+<!-- --- -->
+
+<!-- - again mixed-models -->
+<!-- - \cond{WITHOUT}: baseline -- both polarity items were indistinguishable in the baseline -->
+<!-- - three important interaction effects: -->
+
+<!-- 1. *ani* was considered worse in \cond{ELLIPSIS}: t = $-2.61$, p $<.01$ -->
+
+<!-- 2. *ani* was worse in \cond{LIKELIHOOD}: t = $-4.73$, p $<.001$ -->
+
+<!-- 3. *ani* was better in \cond{NR}: t = $2.41$, p $<.05$ (similar findings as in older experimental work focused on NegRaising: \citealt{dovcekal2016experimentala,docekaldotlacilsubedinb}) -->
+
+<!-- --- -->
+
+<!-- - the baseline shows that both polarity items can appear in sentences without verbal negation -->
+<!-- - the positive interaction of *ani* by \cond{ELLIPSIS}: expected for NPIs -->
+<!-- - in both experiment 2 and experiment 3 *ani* was tested in \cond{LIKELIHOOD} with a bad probability/noteworthiness profile for it  -->
+<!--   - but the scales were ranks (nouns), not numerical -->
+<!--   - in both experiments, *ani* was judged as worse in \cond{LIKELIHOOD} than *žádný* -->
+
+<!-- --- -->
+
+<!-- ### The correlation in experiment 3 and summary -->
+
+<!-- - again, the negative correlation between *ani* acceptability in \cond{NR} and its acceptability in \cond{LIKELIHOOD} was found -->
+<!-- - t=$-3.0$, p $<0.005$ -->
+
+<!-- --- -->
+
+<!-- - in all three experiments, the following negative correlations for *ani* were found: -->
+
+<!-- 1. the acceptability in \cond{EQUATIVES} and *ani* acceptability in \cond{NR} (experiment 1) -->
+
+<!-- 2. the acceptability in \cond{LIKELIHOOD} and *ani* acceptability in \cond{NR} (experiment 2 & 3) -->
+
+<!-- 3. the acceptability in \cond{ELLIPSIS} and *ani* acceptability in \cond{NR} (experiment 2) -->
+
+<!-- --- -->
+
+
+---
+
+# References
+
